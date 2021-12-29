@@ -14,7 +14,7 @@ const Segment = ({ title, onSave }) => {
             return
         }
 
-        setCoins(coins * 1000)
+        setCoins(coins * 10000)
         onSave({ coins })
         setHasBeenClicked(!hasBeenClicked)
     }
