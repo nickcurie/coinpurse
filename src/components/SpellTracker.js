@@ -1,51 +1,61 @@
 import { useState, useEffect } from 'react'
 import Button from './Button'
 import Dropdown from './Dropdown'
+import SpellCard from './SpellCard'
 
 const SpellTracker = () => {
 
-    const api_url = "https://www.dnd5eapi.co/api/"
+    const api_url = "https://www.dnd5eapi.co/"
 
     const [spellList, setSpellList] = useState([])
+    const [selectedSpells, setSelectedSpells] = useState([])
+    const [spellIndex, setSpellIndex] = useState('')
+    const [spell, setSpell] = useState('')
 
-    const [spellId, setSpellId] = useState(0)
+    const handleDropdownChange = (event) => {
+        setSpellIndex(event.target.value)
+        console.log(spellIndex)
+    }
 
-    
+    const fetchSpell = async (url, request) => {
+        const res = await fetch(url + request)
+        const recieved = await res.json()
 
-    const handleChange = (event) => {
-        setSpellId(event.target.value)
+        setSelectedSpells(selectedSpells => [...selectedSpells, recieved])
+    }
+
+    const getSpellList = async (url, request) => {
+        const res = await fetch(url + request)
+        const recieved = await res.json()
+
+        for (let step = 0; step < recieved['count']; step++) {
+            setSpellList(spellList => [...spellList, ({ label: recieved['results'][step]['name'], value: recieved['results'][step]['index'], url: recieved['results'][step]['url'] })])
+        }
     }
 
     useEffect(() => {
-        const getapi = (url, whatuwant) => {
-            return fetch(url + whatuwant)
-            .then(res => {
-                return res.json()
-            })
-            .then(recieved => {
-                for (let step = 0; step < recieved['count']; step++){
-                    setSpellList(spellList => [...spellList, ({label: recieved['results'][step]['name'], value: step})])
-                }
-
-            })
-            // let test = [
-            //     { label: 'PP', value: 100**3},
-            //     { label: 'GP', value: 100**2},
-            //     { label: 'SP', value: 100},
-            //     { label: 'CP', value: 1}
-            // ]
-
-        }
-        getapi(api_url, 'spells/')
+        getSpellList(api_url, 'api/spells/')
     }, [])
+
+    useEffect(() => {
+        fetchSpell(api_url, 'api/spells/' + spell)
+        //alert(spell)
+    }, [spell])
 
   return (
     <div className='test'>
         <div className='center'>
-            <Dropdown options={spellList} value={spellId} onChange={handleChange} size='big'/>
+            <Dropdown options={spellList} value={spellIndex} onChange={handleDropdownChange}/>
         </div>
-        <div>
-            <Button text='Submit' onClick={() => alert(spellId)}/>
+        <div align='center'>
+            <Button text='+' onClick={() => setSpell(spellIndex)} />
+        </div>
+        <div className='spell-grid'>
+            {
+                selectedSpells.map((spell) => (
+                    <SpellCard spellName={spell['name']} spellRange={spell['range']} spellLevel={spell['level']} spellDescription={spell['desc']}/>
+                ))
+            }
         </div>
         
     </div>

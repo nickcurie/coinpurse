@@ -11,7 +11,7 @@ body {
   background-color: #999;
 }
 
-.container {
+.fieldset-content {
   max-width: 650px;
   margin: 30px auto;
   overflow: auto;
@@ -21,18 +21,24 @@ body {
   border-radius: 5px;
 }
 
-.grid-container {
+.button-grid {
   display: grid;
   grid-template-columns: repeat(5, 90px);
   gap: 5px;
   margin-top: 20px
 }
 
-.grid-container-2 {
+.tracker-grid {
   display: grid;
   grid-auto-flow: row;
-  /* grid-template-columns: repeat(2, 1fr); */
+  grid-template-columns: 1fr 1fr;
   margin-top: 20px
+}
+
+.spell-grid {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: 1fr 1fr;
 }
 
 .header {
@@ -79,29 +85,6 @@ legend {
 }
 
 .btn-square:active {
-  transform: scale(0.98);
-}
-
-.btn-triangle-up {
-  width: 0; 
-  height: 0; 
-  border-left: 15px solid #999;
-  border-right: 15px solid #999;
-  border-top: 15px solid #999;
-  
-  border-bottom: 15px solid black;
-
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 15px;
-  font-family: inherit;
-}
-
-.btn-triangle-up:focus {
-  outline: none;
-}
-
-.btn-triangle-up:active {
   transform: scale(0.98);
 }
 

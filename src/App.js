@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="App">
       <Header title='Welcome to Coinpurse'/>
-      <div className='grid-container-2'>
+      <div className='tracker-grid'>
         <TrackerSegment title='Coin Tracker' trackerType='coin'/>
         <TrackerSegment title='Spell Tracker' trackerType='spell'/>
       </div>

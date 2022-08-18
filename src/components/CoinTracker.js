@@ -83,7 +83,7 @@ const CoinTracker = () => {
                 :
                     <div>
                         <div className="manipulate-coins">
-                            <div className='grid-container'>
+                            <div className='button-grid'>
                                 <Button text='+1' color='#00d9e0' textColor='black' onClick={() => incrementCoins(1*coinType)} />
                                 <Button text='+5' color='#00d9e0' textColor='black' onClick={() => incrementCoins(5*coinType)} />
                                 <Button text='+10' color='#00d9e0' textColor='black' onClick={() => incrementCoins(10*coinType)} />

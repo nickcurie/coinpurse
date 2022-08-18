@@ -17,7 +17,7 @@ const renderSwitch = (param) => {
 const TrackerSegment = ({ title, trackerType }) => {
   return (
     <div>
-        <fieldset className='container'>
+        <fieldset className='fieldset-content'>
             <legend>
                 {title}
             </legend>
