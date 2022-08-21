@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import Button from './components/Button';
 import Header from './components/Header'
 import TrackerSegment from './components/TrackerSegment';
 
@@ -10,9 +12,10 @@ import TrackerSegment from './components/TrackerSegment';
 
 function App() {
 
-  // Save Coins
-  const saveCoins = (coins) => {
-    //console.log(coins)
+  const [trackerSegments, setTrackerSegments] = useState([])
+
+  const addTrackerSegment = () => {
+
   }
 
   return (
@@ -21,6 +24,9 @@ function App() {
       <div className='tracker-grid'>
         <TrackerSegment title='Coin Tracker' trackerType='coin'/>
         <TrackerSegment title='Spell Tracker' trackerType='spell'/>
+        <div className='test'>
+          <Button color='#999' text='+' textColor='black' shape='circle' onClick={() => console.log("hi")}/>
+        </div>
       </div>
     </div>
   ); 

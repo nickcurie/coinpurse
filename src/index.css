@@ -66,26 +66,38 @@ legend {
   font-weight: bold;
 }
 
-.btn-square {
+button {
   display: inline-block;
   background: #000;
   color: #fff;
   border: none;
+  cursor: pointer;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+button:focus {
+  outline: none;
+}
+
+.btn-square {
   padding: 10px 20px;
   margin: 5px;
   border-radius: 5px;
-  cursor: pointer;
   text-decoration: none;
   font-size: 15px;
   font-family: inherit;
 }
 
-.btn-square:focus {
-  outline: none;
-}
-
-.btn-square:active {
-  transform: scale(0.98);
+.btn-circle {
+  border-radius: 50%;
+  border-style: dashed;
+  border-color: rgb(88, 88, 88);
+  border-width: 2px;
+  height: 50px;
+  width: 50px; 
 }
 
 .btn-block {
@@ -110,6 +122,10 @@ select:focus {
 
 h2 {
   text-align: center;
+}
+
+.test {
+  margin: auto;
 }
 
 .manipulate-coins {
