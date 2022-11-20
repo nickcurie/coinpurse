@@ -72,7 +72,10 @@ const CoinTracker = () => {
                 ? 
                     <div className="add-form">
                         <div className="form-control">
-                            <input type="number" placeholder="Enter starting coin amount" onChange={(e) => setCoins(e.target.value)}/>
+                            <input type="number" onChange={(e) => setCoins(e.target.value * 100**3)}/> <span>PP</span>
+                            <input type="number" onChange={(e) => setCoins(e.target.value * 100**2)}/> <span>GP</span>
+                            <input type="number" onChange={(e) => setCoins(e.target.value * 100**1)}/> <span>SP</span>
+                            <input type="number" onChange={(e) => setCoins(e.target.value * 100**0)}/> <span>CP</span>
                         </div>
                         
                         <Button color='#00a1a3' text='In PP' textColor='black'  onClick={() => onClickIntialCoinValue(3)}/>
@@ -83,7 +86,7 @@ const CoinTracker = () => {
                 :
                     <div>
                         <div className="manipulate-coins">
-                            <div className='button-grid'>
+                            {/* <div className='button-grid'>
                                 <Button text='+1' color='#00d9e0' textColor='black' onClick={() => incrementCoins(1*coinType)} />
                                 <Button text='+5' color='#00d9e0' textColor='black' onClick={() => incrementCoins(5*coinType)} />
                                 <Button text='+10' color='#00d9e0' textColor='black' onClick={() => incrementCoins(10*coinType)} />
@@ -95,7 +98,7 @@ const CoinTracker = () => {
                                 <Button text='-10' color='#f8574f' textColor='black' onClick={() => incrementCoins(-10*coinType)}/>
                                 <Button text='-50' color='#f8574f' textColor='black' onClick={() => incrementCoins(-50*coinType)}/>
                                 <Button text='-100' color='#f8574f' textColor='black' onClick={() => incrementCoins(-100*coinType)}/>
-                            </div>
+                            </div> */}
                             
                             <div>
                                 <div className="form-control">
