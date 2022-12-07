@@ -15,18 +15,19 @@ function App() {
   const [trackerSegments, setTrackerSegments] = useState([])
 
   const addTrackerSegment = () => {
-    setTrackerSegments([...trackerSegments, "spell"])
+    setTrackerSegments([...trackerSegments, "x"])
   }
 
   return (
     <div className="App">
-      <Header title='Welcome to Coinpurse'/>
+      <Header title='Coinpurse'/>
       <div className='tracker-grid'>
+        <TrackerSegment title='Health Tracker' trackerType='health'/>
         <TrackerSegment title='Coin Tracker' trackerType='coin'/>
         <TrackerSegment title='Spell Tracker' trackerType='spell'/>
         {trackerSegments.map((item) => ( <TrackerSegment title={item +' tracker'} trackerType={item} />))}
-        <div className='test'>
-          <Button color='#999' text='+' textColor='black' shape='circle' onClick={() => addTrackerSegment()}/>
+        <div className='add-tracker'>
+          <Button color='#D6E5E3' text='+' shape='circle' onClick={() => addTrackerSegment()}/>
         </div>
       </div>
     </div>

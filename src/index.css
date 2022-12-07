@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
 * {
   box-sizing: border-box;
@@ -7,8 +7,15 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #999;
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: #424874;
+}
+
+.header {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-bottom: 40px;
 }
 
 .fieldset-content {
@@ -16,7 +23,7 @@ body {
   margin: 30px auto;
   overflow: auto;
   min-height: 300px;
-  border: 2px solid steelblue;
+  border: 2px solid #A6B1E1;
   padding: 30px;
   border-radius: 5px;
 }
@@ -32,25 +39,41 @@ body {
   display: grid;
   grid-auto-flow: row;
   grid-template-columns: 1fr 1fr;
-  margin-top: 20px
 }
 
 .spell-grid {
   display: grid;
   grid-auto-flow: row;
   grid-template-columns: 1fr 1fr;
+  column-gap: 2em;
+  row-gap: 2em;
+  margin-top: 2em;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.spell-card {
+  border: #cacfd6;
+  border-width: 2px;
+}
+
+#bruh {
   margin-bottom: 20px;
+}
+
+input.big-checkbox {
+  width: 2em;
+  height: 2em;
+  margin-left: 4px;
+  margin-right: 4px;
 }
 
 .dropdwn {
   position: absolute;
-  top: 3em;
+  top: 25%;
+  left: 10%;
+}
+
+#coinpicker {
+  float: left
 }
 
 .center {
@@ -59,16 +82,20 @@ body {
   position: relative;
 }
 
+.center-child {
+  margin: auto;
+}
+
 legend {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   font-size: 2em; 
   font-weight: bold;
 }
 
 button {
   display: inline-block;
-  background: #000;
-  color: #fff;
+  background: #d6e5e3;
+  color: #d6e5e3;
   border: none;
   cursor: pointer;
 }
@@ -86,52 +113,53 @@ button:focus {
   margin: 5px;
   border-radius: 5px;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 20px;
   font-family: inherit;
 }
 
 .btn-circle {
   border-radius: 50%;
-  border-style: dashed;
-  border-color: rgb(88, 88, 88);
+  border-color: #424874;
   border-width: 2px;
   height: 50px;
   width: 50px; 
-}
-
-.btn-block {
-  display: block;
-  width: 100%;
+  font-size: 20px;
+  font-family: inherit;
 }
 
 select {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   font-size: 32px;
-  background-color: #999;
+  background-color: #424874;
   border: 0px;
+  padding-top: 6px;
+  padding-bottom: 3px;
+  text-align-last: center;
 }
 
 select:hover {
-  background-color: rgb(128, 128, 128);
+  background-color: #373c61;
 }
 
 select:focus {
-  background-color: rgb(128, 128, 128);
+  background-color: #373c61;
 }
 
 h2 {
   text-align: center;
 }
 
-.test {
+.add-tracker {
   margin: auto;
+  padding: 5em;
 }
 
 .manipulate-coins {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
 }
 
 .add-subtract {
@@ -140,9 +168,9 @@ h2 {
 }
 
 .form-control {
-  /* display: flex; */
   margin-top: 20px;
   align-items: center;
+  float: left;
 }
 
 .form-control input {
@@ -154,8 +182,48 @@ h2 {
   text-align: center;
 }
 
-@media (min-width: 100em){
-  .grid-container-2{
+.next-to {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2em;
+}
+
+.under {
+  display: flex;
+  justify-content: center;
+}
+
+#adder {
+  width: 100%;
+}
+
+#legend-title {
+  color: #cacfd6;
+}
+
+#health {
+  margin-bottom: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.flex-child {
+  flex: 1;
+}  
+
+.flex-child:first-child {
+  margin-right: 20px;
+} 
+
+@media (max-width: 100em){
+  .tracker-grid{
     grid-auto-flow: column;
+    grid-template-rows: repeat(6, 1fr);
   }
 }
