@@ -66,7 +66,7 @@ const SpellTracker = () => {
             }
         </div>
         <div align='center'>
-            <Button text='+' onClick={() => setSpell(spellIndex)} />
+            <Button text='Add' onClick={() => setSpell(spellIndex)} />
         </div>
         <div className='spell-grid'>
             {

@@ -24,7 +24,7 @@ body {
   overflow: auto;
   min-height: 300px;
   border: 2px solid #A6B1E1;
-  padding: 30px;
+  padding: 40px 30px 30px 30px;
   border-radius: 5px;
 }
 
@@ -168,7 +168,6 @@ h2 {
 }
 
 .form-control {
-  margin-top: 20px;
   align-items: center;
   float: left;
 }

@@ -40,16 +40,18 @@ const HealthTracker = () => {
         ?
           <div className='add-form'>
             <div className='form-control'>
-              <input type='number' onChange={(e) => setMaxHealth(e.target.value)} id='adder'/>
+              <input type='number' onBlur={(e) => setMaxHealth(e.target.value)} id='adder' placeholder='Max Health'/>
             </div>
-            <Button text='Submit' onClick={() => onClickSetMaxHealth()}/>
+            <div align='center'>
+              <Button text='Submit' onClick={() => onClickSetMaxHealth()}/>
+            </div>
           </div>
         :
         <div>
           <h1 id='health'>{currentHealth} / {maxHealth}</h1>
           <div className='next-to'>
-            <Button text={'+'} onClick={() => healthCheck('add')}></Button>
             <Button text={'-'} onClick={() => healthCheck('sub')}></Button>
+            <Button text={'+'} onClick={() => healthCheck('add')}></Button>
           </div>
           <div className='under'>
             <Button text={'Change max HP'} onClick={() => setHasHealth(false)}></Button>

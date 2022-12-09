@@ -72,10 +72,10 @@ const CoinTracker = () => {
                 ? 
                     <div className="add-form">
                         <div className="form-control">
-                            <input type="number" onChange={(e) => setCoins(coins + e.target.value * 100**3)} id='setter'/> <span>PP</span>
-                            <input type="number" onChange={(e) => setCoins(coins + e.target.value * 100**2)} id='setter'/> <span>GP</span>
-                            <input type="number" onChange={(e) => setCoins(coins + e.target.value * 100**1)} id='setter'/> <span>SP</span>
-                            <input type="number" onChange={(e) => setCoins(coins + e.target.value * 100**0)} id='setter'/> <span>CP</span>
+                            <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**3)} id='setter'/> <span>PP</span>
+                            <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**2)} id='setter'/> <span>GP</span>
+                            <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**1)} id='setter'/> <span>SP</span>
+                            <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**0)} id='setter'/> <span>CP</span>
                         </div>
                         
                         {/* <Button color='#00a1a3' text='In PP' textColor='black'  onClick={() => onClickIntialCoinValue(3)}/>
