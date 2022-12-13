@@ -102,13 +102,13 @@ const CoinTracker = () => {
                             </div> */}
                             
                             <div className='flex-container'>
-                                <div className="form-control flex-child">
+                                <div className="form-control">
                                     <form ref={customCoinAmount}>
                                         <input type='number' placeholder='Custom amount' id='adder'/>
                                     </form>
                                 </div>
 
-                                <div className="center flex-child" id='coinpicker'>
+                                <div className="" id='coinpicker'>
                                     <Dropdown options={[
                                         { label: 'PP', value: 100**3},
                                         { label: 'GP', value: 100**2},

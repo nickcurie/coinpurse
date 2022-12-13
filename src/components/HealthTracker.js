@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Button from './Button';
 
-import ProgressBar from 'react-bootstrap/ProgressBar';
 
 const HealthTracker = () => {
 

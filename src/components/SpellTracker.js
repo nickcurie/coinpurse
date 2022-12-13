@@ -19,7 +19,6 @@ const SpellTracker = () => {
 
     const handleDropdownChange = (event) => {
         setSpellIndex(event.target.value)
-        console.log(spellIndex)
     }
 
     const fetchSpell = async (url, request) => {
@@ -56,7 +55,7 @@ const SpellTracker = () => {
             {
                 loadingAll
                 ?
-                    <SkeletonTheme baseColor='#919191' highlightColor='#a1a1a1' height='3em' className='dropdwn'>
+                    <SkeletonTheme baseColor='#484e7b' highlightColor='#515785' height='3em' className='dropdwn'>
                         <p>
                             <Skeleton />
                         </p>

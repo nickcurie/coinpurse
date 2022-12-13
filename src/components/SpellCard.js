@@ -1,16 +1,27 @@
 import { useState } from 'react'
-import ReactTooltip from 'react-tooltip'
+
+import { Tooltip } from 'react-tooltip';
+import 'react-tooltip/dist/react-tooltip.css'
+import { AiOutlineInfoCircle } from 'react-icons/ai'
+
 
 const SpellCard = ({ spellName, spellRange, spellLevel, spellDescription }) => {
+
+  const test = () => {
+    console.log(spellDescription);
+    return spellDescription;
+  }
 
   return (
     <div className='spell-card'>
         <div align='right'>
-          <span data-tip data-for='desc'>Info</span>
+          <AiOutlineInfoCircle id='desc'/>
         </div>
-        <ReactTooltip id='desc' place='top' effect='solid'>
-          { spellDescription }
-        </ReactTooltip>
+        <Tooltip anchorId='desc' place='top' className='tooltip'>
+          <div>
+            <span id='tooltip'>{ test() }</span>
+          </div>
+        </Tooltip>
         <h1 align='center'>{ spellName }</h1>
         <div align='center'>
             <h2>{ spellRange }</h2>
