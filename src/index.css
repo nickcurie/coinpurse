@@ -48,6 +48,24 @@ body {
   grid-template-columns: 1fr 1fr;
 }
 
+
+.ability-grid {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: 5em 1fr;
+  column-gap: 2em;
+  row-gap: 2em;
+  margin-top: 2em;
+  float: left;
+  align-items: center;
+}
+
+.check-grid {
+  display: grid;
+  grid-template-columns: 2em 2em;
+  grid-auto-flow: row;
+}
+
 .spell-grid {
   display: grid;
   grid-auto-flow: row;
@@ -62,7 +80,7 @@ body {
   border-width: 2px;
 }
 
-#bruh {
+#level {
   margin-bottom: 20px;
 }
 
@@ -71,12 +89,6 @@ input.big-checkbox {
   height: 2em;
   margin-left: 4px;
   margin-right: 4px;
-}
-
-#coinpicker {
-  width: 10%;
-  height: 7em;
-  position: relative;
 }
 
 .center {
@@ -164,13 +176,28 @@ h2 {
   justify-content: space-between;
 }
 
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0em 5em;
+}
+
+#coinpicker {
+  width: 10%;
+  position: relative;
+  margin-left: 2em;
+}
+
 .add-subtract {
   display: flex;
   justify-content: center;
 }
 
 .form-control {
+  display: flex;
   align-items: center;
+  justify-content: space-around;
 }
 
 .form-control input {
@@ -197,7 +224,19 @@ h2 {
   justify-content: center;
 }
 
-#adder {
+.add-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+#coin-adder {
+  width: 100%;
+}
+
+#health-setter {
   width: 100%;
 }
 
@@ -215,13 +254,6 @@ h1 {
 
 form {
   margin: 3.5em 0em;
-}
-
-.flex-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0em 6em;
 }
 
 @media (max-width: 100em){

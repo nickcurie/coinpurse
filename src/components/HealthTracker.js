@@ -39,7 +39,7 @@ const HealthTracker = () => {
         ?
           <div className='add-form'>
             <div className='form-control'>
-              <input type='number' onBlur={(e) => setMaxHealth(e.target.value)} id='adder' placeholder='Max Health'/>
+              <input type='number' onBlur={(e) => setMaxHealth(e.target.value)} id='health-setter' placeholder='Max Health'/>
             </div>
             <div align='center'>
               <Button text='Submit' onClick={() => onClickSetMaxHealth()}/>

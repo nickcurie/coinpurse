@@ -25,7 +25,7 @@ const SpellCard = ({ spellName, spellRange, spellLevel, spellDescription }) => {
         <h1 align='center'>{ spellName }</h1>
         <div align='center'>
             <h2>{ spellRange }</h2>
-            <h2 id='bruh'>Level { spellLevel } spell</h2>
+            <h2 id='level'>Level { spellLevel } spell</h2>
             <input type='checkbox' className='big-checkbox'/>
             <input type='checkbox' className='big-checkbox'/>
             <input type='checkbox' className='big-checkbox'/>

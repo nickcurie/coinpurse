@@ -51,20 +51,20 @@ const SpellTracker = () => {
 
   return (
     <>
-        <div className='center'>
-            {
-                loadingAll
-                ?
-                    <SkeletonTheme baseColor='#484e7b' highlightColor='#515785' height='3em' className='dropdwn'>
-                        <p>
-                            <Skeleton />
-                        </p>
-                    </SkeletonTheme>
-                :
-                    <Dropdown options={spellList} value={spellIndex} onChange={handleDropdownChange}/>
-            }
-        </div>
-        <div align='center'>
+        <div className='add-form'>
+            <div className='spell-dropdown'>
+                {
+                    loadingAll
+                    ?
+                        <SkeletonTheme baseColor='#484e7b' highlightColor='#515785' height='3em' className='dropdwn'>
+                            <p>
+                                <Skeleton />
+                            </p>
+                        </SkeletonTheme>
+                    :
+                        <Dropdown options={spellList} value={spellIndex} onChange={handleDropdownChange}/>
+                }
+            </div>
             <Button text='Add' onClick={() => setSpell(spellIndex)} />
         </div>
         <div className='spell-grid'>

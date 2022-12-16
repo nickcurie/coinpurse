@@ -1,1 +1,3 @@
-Basic DND tool to keep track of money and spells
+## Coinpurse
+
+Basic DND tool to keep track of money, health, and spells

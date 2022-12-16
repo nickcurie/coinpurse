@@ -25,6 +25,7 @@ function App() {
         <TrackerSegment title='Health Tracker' trackerType='health'/>
         <TrackerSegment title='Coin Tracker' trackerType='coin'/>
         <TrackerSegment title='Spell Tracker' trackerType='spell'/>
+        <TrackerSegment title='Ability Tracker' trackerType='ability'/>
         {trackerSegments.map((item) => ( <TrackerSegment title={item +' tracker'} trackerType={item} />))}
         <div className='add-tracker'>
           <Button color='#D6E5E3' text='+' shape='circle' onClick={() => addTrackerSegment()}/>

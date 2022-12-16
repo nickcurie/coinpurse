@@ -71,11 +71,11 @@ const CoinTracker = () => {
                 !hasBeenClicked 
                 ? 
                     <div className="add-form">
-                        <div className="form-control">
-                            <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**3)} id='setter'/> <span>PP</span>
-                            <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**2)} id='setter'/> <span>GP</span>
-                            <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**1)} id='setter'/> <span>SP</span>
-                            <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**0)} id='setter'/> <span>CP</span>
+                        <div className="form-control spc-btwn">
+                            <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**3)} id='coin-setter'/> <span>PP</span>
+                            <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**2)} id='coin-setter'/> <span>GP</span>
+                            <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**1)} id='coin-setter'/> <span>SP</span>
+                            <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**0)} id='coin-setter'/> <span>CP</span>
                         </div>
                         
                         {/* <Button color='#00a1a3' text='In PP' textColor='black'  onClick={() => onClickIntialCoinValue(3)}/>
@@ -104,7 +104,7 @@ const CoinTracker = () => {
                             <div className='flex-container'>
                                 <div className="form-control">
                                     <form ref={customCoinAmount}>
-                                        <input type='number' placeholder='Custom amount' id='adder'/>
+                                        <input type='number' placeholder='Custom amount' id='coin-adder'/>
                                     </form>
                                 </div>
 
