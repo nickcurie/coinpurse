@@ -20,7 +20,7 @@ const HealthTracker = () => {
     return false;
   }
 
-  const healthCheck = (type) => {
+  const constrainHealth = (type) => {
     if (type === 'add') {
       if (currentHealth + 1 <= maxHealth) {
         setCurrentHealth(currentHealth + 1);
@@ -49,8 +49,8 @@ const HealthTracker = () => {
         <div>
           <h1 id='health'>{currentHealth} / {maxHealth}</h1>
           <div className='next-to'>
-            <Button text={'-'} onClick={() => healthCheck('sub')}></Button>
-            <Button text={'+'} onClick={() => healthCheck('add')}></Button>
+            <Button text={'-'} onClick={() => constrainHealth('sub')}></Button>
+            <Button text={'+'} onClick={() => constrainHealth('add')}></Button>
           </div>
           <div className='under'>
             <Button text={'Change max HP'} onClick={() => setHasHealth(false)}></Button>
