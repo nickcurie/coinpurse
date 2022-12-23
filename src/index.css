@@ -22,7 +22,7 @@ body {
   display: flex;
   justify-content: left;
   align-items: center;
-  margin-bottom: 40px;
+  margin: 20px 20px;
 }
 
 .fieldset-content {
@@ -60,10 +60,16 @@ body {
   align-items: center;
 }
 
+.kill-card {
+  display: flex;
+  align-items: center;
+}
+
 .check-grid {
   display: grid;
   grid-template-columns: 2em 2em;
   grid-auto-flow: row;
+  row-gap: 6px;
 }
 
 .spell-grid {
@@ -201,7 +207,6 @@ h2 {
 }
 
 .form-control input {
-  width: 15%;
   height: 40px;
   margin: 5px;
   padding: 3px 7px;
@@ -232,12 +237,8 @@ h2 {
   gap: 30px;
 }
 
-#coin-adder {
-  width: 100%;
-}
-
-#health-setter {
-  width: 100%;
+#coin-setter {
+  width: 15%;
 }
 
 #legend-title {
@@ -259,6 +260,6 @@ form {
 @media (max-width: 100em){
   .tracker-grid{
     grid-auto-flow: column;
-    grid-template-rows: repeat(6, 1fr);
+    grid-template-rows: repeat(10, 1fr);
   }
 }

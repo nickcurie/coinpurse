@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css'
 import { AiOutlineInfoCircle } from 'react-icons/ai'

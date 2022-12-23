@@ -71,7 +71,7 @@ const CoinTracker = () => {
                 !hasBeenClicked 
                 ? 
                     <div className="add-form">
-                        <div className="form-control spc-btwn">
+                        <div className="form-control">
                             <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**3)} id='coin-setter'/> <span>PP</span>
                             <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**2)} id='coin-setter'/> <span>GP</span>
                             <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**1)} id='coin-setter'/> <span>SP</span>
@@ -104,7 +104,7 @@ const CoinTracker = () => {
                             <div className='flex-container'>
                                 <div className="form-control">
                                     <form ref={customCoinAmount}>
-                                        <input type='number' placeholder='Custom amount' id='coin-adder'/>
+                                        <input type='number' placeholder='Custom amount'/>
                                     </form>
                                 </div>
 

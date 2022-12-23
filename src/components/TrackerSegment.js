@@ -4,6 +4,7 @@ import CoinTracker from './CoinTracker'
 import HealthTracker from './HealthTracker'
 import SpellTracker from './SpellTracker'
 import AbilityTracker from './AbilityTracker'
+import KillTracker from './KillTracker'
 
 const renderSwitch = (param) => {
     switch(param){
@@ -15,6 +16,8 @@ const renderSwitch = (param) => {
             return <HealthTracker/>
         case 'ability':
             return <AbilityTracker/>
+        case 'kill':
+            return <KillTracker/>
         default:
             return <Button text='not implemented'/>
     }

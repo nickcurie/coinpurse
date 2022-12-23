@@ -9,7 +9,7 @@ const AbilityTracker = () => {
   const [abilityName, setAbilityName] = useState('');
   const [uses, setUses] = useState('');
 
-  const idk = () => {
+  const onClickHandleAddAbility = () => {
     setAbilities(abilities => [...abilities, [abilityName, uses]]);
     setUses('');
     setAbilityName('');
@@ -19,10 +19,10 @@ const AbilityTracker = () => {
     <>
         <div className='add-form'>
             <div className='form-control'>
-                <input placeholder='Ability Name' id='health-setter' value={abilityName} onChange={(e) => setAbilityName(e.target.value)}/>
+                <input placeholder='Ability Name' value={abilityName} onChange={(e) => setAbilityName(e.target.value)}/>
                 <input type='number' placeholder='Number of Uses' id='health-setter' value={uses} onChange={(e) => setUses(e.target.valueAsNumber)}/>
             </div>
-            <Button text='Submit' onClick={() => idk()}/>
+            <Button text='Submit' onClick={() => onClickHandleAddAbility()}/>
         </div>
         <div className='ability-grid'>
           {
