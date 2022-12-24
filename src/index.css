@@ -48,7 +48,6 @@ body {
   grid-template-columns: 1fr 1fr;
 }
 
-
 .ability-grid {
   display: grid;
   grid-auto-flow: row;
@@ -86,8 +85,43 @@ body {
   border-width: 2px;
 }
 
+.class-selector {
+  display: flex;
+  justify-content: center;
+  column-gap: 1em;
+  align-items: center;
+}
+
+.class-selector input {
+  height: 40px;
+  margin: 5px;
+  padding: 3px 7px;
+  font-size: 17px;
+  text-align: center;
+}
+
+.abs {
+  position: absolute;
+  left: 650px;
+  bottom: 700px;
+}
+
+.slots-grid {
+  margin: 2em 0em;
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 1em;
+}
+
+.level-slot {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+}
+
 #level {
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
 }
 
 input.big-checkbox {

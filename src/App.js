@@ -4,11 +4,12 @@ import Header from './components/Header'
 import TrackerSegment from './components/TrackerSegment';
 
 //todo logging spending
-//todo spell tracker
 //todo ammo tracker
 //todo weight tracker
 //todo DM vision
 //todo adding widgets
+//todo notes
+//todo removing items
 
 function App() {
 
