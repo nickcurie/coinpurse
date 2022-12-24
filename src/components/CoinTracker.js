@@ -35,7 +35,7 @@ const CoinTracker = () => {
         var coinCounter = coins
         var coinValue = "You have "
 
-        if(coinCounter > 1000000){ //able to convert to PP
+        if(coinCounter >= 1000000){ //able to convert to PP
             coinValue = coinValue + Math.floor(coinCounter / 1000000) + " PP "
             coinCounter = coinCounter % 1000000
         }
@@ -82,7 +82,7 @@ const CoinTracker = () => {
                         <Button color='gold' text='In GP' textColor='black'  onClick={() => onClickIntialCoinValue(2)}/>
                         <Button color='silver' text='In SP' textColor='black' onClick={() => onClickIntialCoinValue(1)}/>
                         <Button color='#B87333' text='In CP' textColor='black' onClick={() => onClickIntialCoinValue(0)}/> */}
-                        <Button color='gold' text='Submit' textColor='black' onClick={() => onClickIntialCoinValue(0)}/>
+                        <Button text='Submit' onClick={() => onClickIntialCoinValue(0)}/>
                     </div> 
                 :
                     <>
