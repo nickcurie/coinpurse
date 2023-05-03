@@ -19,7 +19,7 @@ const SpellSlotCard = ({ characterLevel, classType }) => {
     [4,3,3,2,0], [4,3,3,3,1], [4,3,3,3,1], [4,3,3,3,2], [4,3,3,3,2]
   ]
 
-  const fullCasterClasses = ['sorcerer', 'wizard', 'druid', 'bard']
+  const fullCasterClasses = ['sorcerer', 'wizard', 'druid', 'bard', 'cleric']
 
   function determineSpellSlots() {
     if (fullCasterClasses.includes(classType)) {

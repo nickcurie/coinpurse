@@ -10,10 +10,44 @@ const AbilityTracker = () => {
   const [uses, setUses] = useState('');
 
   const onClickHandleAddAbility = () => {
-    setAbilities(abilities => [...abilities, [abilityName, uses]]);
-    setUses('');
-    setAbilityName('');
+    let res = checkInputOk(abilityName, uses)
+    if (res.ok) {
+      setAbilities(abilities => [...abilities, [abilityName, uses]]);
+      //set inputs back to empty
+      setUses('');
+      setAbilityName('');
+    } else {
+      alert(res.msg)
+    }
   };
+
+  function checkInputOk(name, uses) {
+    if (name === '' || uses === '') {
+      return {
+        ok: false,
+        msg: "name or number of uses empty"
+      };
+    }
+
+    if (name.length > 25) {
+      return {
+        ok: false,
+        msg: "name too long"
+      };
+    }
+
+    if (uses > 8) {
+      return {
+        ok: false,
+        msg: "too many uses"
+      };
+    }
+
+    return {
+      ok: true,
+      msg: null
+    };
+  }
 
   return (
     <>
