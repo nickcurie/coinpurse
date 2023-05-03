@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Button from './Button';
 
+//TODO: temp health
 
 const HealthTracker = () => {
 
@@ -46,15 +47,11 @@ const HealthTracker = () => {
             </div>
           </div>
         :
-        <div>
+        <div className='health-content'>
           <h1 id='health'>{currentHealth} / {maxHealth}</h1>
-          <div className='next-to'>
-            <Button text={'-'} onClick={() => constrainHealth('sub')}></Button>
-            <Button text={'+'} onClick={() => constrainHealth('add')}></Button>
-          </div>
-          <div className='under'>
-            <Button text={'Change max HP'} onClick={() => setHasHealth(false)}></Button>
-          </div>
+          <Button text={'-'} onClick={() => constrainHealth('sub')} propId='health-minus'></Button>
+          <Button text={'+'} onClick={() => constrainHealth('add')} propId='health-plus'></Button>
+          <Button text={'Change max HP'} onClick={() => setHasHealth(false)} propId={'change-max-health'}></Button>
         </div>
       }
     </>

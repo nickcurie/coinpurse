@@ -78,29 +78,11 @@ const CoinTracker = () => {
                             <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**0)} id='coin-setter'/> <span>CP</span>
                         </div>
                         
-                        {/* <Button color='#00a1a3' text='In PP' textColor='black'  onClick={() => onClickIntialCoinValue(3)}/>
-                        <Button color='gold' text='In GP' textColor='black'  onClick={() => onClickIntialCoinValue(2)}/>
-                        <Button color='silver' text='In SP' textColor='black' onClick={() => onClickIntialCoinValue(1)}/>
-                        <Button color='#B87333' text='In CP' textColor='black' onClick={() => onClickIntialCoinValue(0)}/> */}
                         <Button text='Submit' onClick={() => onClickIntialCoinValue(0)}/>
                     </div> 
                 :
                     <>
                         <div className="manipulate-coins">
-                            {/* <div className='button-grid'>
-                                <Button text='+1' color='#00d9e0' textColor='black' onClick={() => incrementCoins(1*coinType)} />
-                                <Button text='+5' color='#00d9e0' textColor='black' onClick={() => incrementCoins(5*coinType)} />
-                                <Button text='+10' color='#00d9e0' textColor='black' onClick={() => incrementCoins(10*coinType)} />
-                                <Button text='+50' color='#00d9e0' textColor='black' onClick={() => incrementCoins(50*coinType)} />
-                                <Button text='+100' color='#00d9e0' textColor='black' onClick={() => incrementCoins(100*coinType)} />
-                                
-                                <Button text='-1' color='#f8574f' textColor='black' onClick={() => incrementCoins(-1*coinType)} />
-                                <Button text='-5' color='#f8574f' textColor='black' onClick={() => incrementCoins(-5*coinType)}/>
-                                <Button text='-10' color='#f8574f' textColor='black' onClick={() => incrementCoins(-10*coinType)}/>
-                                <Button text='-50' color='#f8574f' textColor='black' onClick={() => incrementCoins(-50*coinType)}/>
-                                <Button text='-100' color='#f8574f' textColor='black' onClick={() => incrementCoins(-100*coinType)}/>
-                            </div> */}
-                            
                             <div className='flex-container'>
                                 <div className="form-control">
                                     <form ref={customCoinAmount}>

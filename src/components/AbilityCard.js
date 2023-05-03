@@ -2,7 +2,7 @@ import React from 'react'
 
 const AbilityCard = ({ abilityName, abilityUses }) => {
   return (
-    <>
+    <div className='ability-card'>
       <div className='check-grid'>
       {
         [...Array(abilityUses).keys()].map((x) => (
@@ -13,7 +13,7 @@ const AbilityCard = ({ abilityName, abilityUses }) => {
       }
       </div>
       <h2>{ abilityName }</h2>
-    </>
+    </div>
   )
 }
 

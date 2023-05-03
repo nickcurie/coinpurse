@@ -6,6 +6,8 @@ import Dropdown from './Dropdown'
 import SpellCard from './SpellCard'
 import SpellSlotCard from './SpellSlotCard'
 
+//TODO: level up 
+
 const SpellTracker = () => {
 
     const api_url = "https://www.dnd5eapi.co/";
@@ -108,9 +110,6 @@ const SpellTracker = () => {
                 </div>
             :
                 <>
-                    {/* <div className='abs'>
-                        <Button text={'Level up!'} onClick={() => test()}/>
-                    </div> */}
                     <SpellSlotCard characterLevel={playerLevel} classType={playerClass}></SpellSlotCard>
                     <div className='add-form'>
                         <div>

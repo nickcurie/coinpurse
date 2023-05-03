@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
+/* ======
+  globals 
+   ====== */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -11,134 +15,11 @@ body {
   background-color: #424874;
 }
 
-#tooltip {
-  width: 20em;
-  display: block;
-  overflow-wrap: break-word;
-  font-size: large;
-}
-
-.header {
+header {
   display: flex;
   justify-content: left;
   align-items: center;
   margin: 20px 20px;
-}
-
-.fieldset-content {
-  max-width: 650px;
-  margin: 30px auto;
-  overflow: auto;
-  min-height: 300px;
-  border: 2px solid #A6B1E1;
-  padding: 40px 30px 30px 30px;
-  border-radius: 5px;
-}
-
-.button-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 90px);
-  gap: 5px;
-  margin-top: 20px
-}
-
-.tracker-grid {
-  display: grid;
-  grid-auto-flow: row;
-  grid-template-columns: 1fr 1fr;
-}
-
-.ability-grid {
-  display: grid;
-  grid-auto-flow: row;
-  grid-template-columns: 5em 1fr;
-  column-gap: 2em;
-  row-gap: 2em;
-  margin-top: 2em;
-  float: left;
-  align-items: center;
-}
-
-.kill-card {
-  display: flex;
-  align-items: center;
-}
-
-.check-grid {
-  display: grid;
-  grid-template-columns: 2em 2em;
-  grid-auto-flow: row;
-  row-gap: 6px;
-}
-
-.spell-grid {
-  display: grid;
-  grid-auto-flow: row;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 2em;
-  row-gap: 2em;
-  margin-top: 2em;
-}
-
-.spell-card {
-  border: #cacfd6;
-  border-width: 2px;
-}
-
-.class-selector {
-  display: flex;
-  justify-content: center;
-  column-gap: 1em;
-  align-items: center;
-}
-
-.class-selector input {
-  height: 40px;
-  margin: 5px;
-  padding: 3px 7px;
-  font-size: 17px;
-  text-align: center;
-}
-
-.abs {
-  position: absolute;
-  left: 650px;
-  bottom: 700px;
-}
-
-.slots-grid {
-  margin: 2em 0em;
-  display: grid;
-  grid-auto-flow: row;
-  grid-template-columns: 1fr 1fr 1fr;
-  row-gap: 1em;
-}
-
-.level-slot {
-  display: flex;
-  flex-flow: row;
-  justify-content: center;
-}
-
-#level {
-  margin-bottom: 1rem;
-}
-
-input.big-checkbox {
-  width: 2em;
-  height: 2em;
-  margin-left: 4px;
-  margin-right: 4px;
-}
-
-.center {
-  width: 100%;
-  height: 7em;
-  position: relative;
-}
-
-.center-child {
-  margin: auto;
 }
 
 legend {
@@ -163,25 +44,6 @@ button:focus {
   outline: none;
 }
 
-.btn-square {
-  padding: 10px 20px;
-  margin: 5px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 20px;
-  font-family: inherit;
-}
-
-.btn-circle {
-  border-radius: 50%;
-  border-color: #424874;
-  border-width: 2px;
-  height: 50px;
-  width: 50px; 
-  font-size: 20px;
-  font-family: inherit;
-}
-
 select {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 32px;
@@ -204,34 +66,78 @@ h2 {
   text-align: center;
 }
 
+h1 {
+  text-align: center;
+}
+
+form {
+  margin: 3.5em 0em;
+}
+
+/* ======
+  styles 
+   ======  */
+
+input.big-checkbox {
+  width: 2em;
+  height: 2em;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.btn-square {
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: inherit;
+}
+
+.btn-circle {
+  border-radius: 50%;
+  border-color: #424874;
+  border-width: 2px;
+  height: 50px;
+  width: 50px; 
+  font-size: 20px;
+  font-family: inherit;
+}
+
+#legend-title {
+  color: #cacfd6;
+}
+
+#tooltip {
+  width: 20em;
+  display: block;
+  overflow-wrap: break-word;
+  font-size: large;
+}
+
+/* ======
+  base tracker 
+   ======  */
+
+.tracker-grid {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: 1fr 1fr;
+}
+
 .add-tracker {
   margin: auto;
   padding: 5em;
 }
 
-.manipulate-coins {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.flex-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0em 5em;
-}
-
-#coinpicker {
-  width: 10%;
-  position: relative;
-  margin-left: 2em;
-}
-
-.add-subtract {
-  display: flex;
-  justify-content: center;
+.fieldset-content {
+  max-width: 650px;
+  margin: 30px auto;
+  overflow: auto;
+  min-height: 300px;
+  border: 2px solid #A6B1E1;
+  padding: 40px 30px 30px 30px;
+  border-radius: 5px;
 }
 
 .form-control {
@@ -252,17 +158,6 @@ h2 {
   margin-right: 10px;
 }
 
-.next-to {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 2em;
-}
-
-.under {
-  display: flex;
-  justify-content: center;
-}
-
 .add-form {
   display: flex;
   flex-direction: column;
@@ -271,24 +166,159 @@ h2 {
   gap: 30px;
 }
 
+/* ======
+  health tracker 
+   ======  */
+
+.health-content {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  row-gap: 2em;
+  grid-template-columns: 1fr 6em 6em 1fr;
+  column-gap: 0.5em;
+}
+
+#health {
+  grid-column: 2 / 4;
+  grid-row: 1 / 2;
+  justify-self: center;
+}
+
+#health-plus {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+#health-minus {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+}
+
+#change-max-health {
+  grid-column: 2 / 4;
+  grid-row: 3 / 4;
+}
+
+/* ======
+  coin tracker 
+   ======  */
+
+.manipulate-coins {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.add-subtract {
+  display: flex;
+  justify-content: center;
+}
+ 
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0em 5em;
+}
+
+#coinpicker {
+  width: 10%;
+  position: relative;
+  margin-left: 2em;
+}
+
 #coin-setter {
   width: 15%;
 }
 
-#legend-title {
-  color: #cacfd6;
+/* ======
+  spell tracker 
+   ======  */
+
+.class-selector {
+  display: flex;
+  justify-content: center;
+  column-gap: 1em;
+  align-items: center;
 }
 
-#health {
-  margin-bottom: 20px;
-}
-
-h1 {
+.class-selector input {
+  height: 40px;
+  margin: 5px;
+  padding: 3px 7px;
+  font-size: 17px;
   text-align: center;
 }
 
-form {
-  margin: 3.5em 0em;
+.slots-grid {
+  margin: 2em 0em;
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 1em;
+}
+
+.level-slot {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+}
+
+.spell-grid {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2em;
+  row-gap: 2em;
+  margin-top: 2em;
+}
+
+.spell-card {
+  border: #cacfd6;
+  border-width: 2px;
+}
+
+#level {
+  margin-bottom: 1rem;
+}
+
+/* ======
+  ability tracker 
+   ======  */
+
+.ability-grid {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 2em;
+  row-gap: 2em;
+  margin-top: 2em;
+  align-items: center;
+}
+
+.ability-card {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: 4em 1fr;
+  column-gap: 2em;
+  align-items: center;
+}
+
+.check-grid {
+  display: grid;
+  grid-template-columns: 2em 2em;
+  grid-auto-flow: row;
+  row-gap: 6px;
+}
+
+/* ======
+  kill tracker 
+   ======  */
+
+.kill-card {
+  display: flex;
+  align-items: center;
 }
 
 @media (max-width: 100em){
