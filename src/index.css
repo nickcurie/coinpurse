@@ -104,10 +104,6 @@ input.big-checkbox {
   font-family: inherit;
 }
 
-.btn-small {
-
-}
-
 #legend-title {
   color: #cacfd6;
 }
@@ -162,6 +158,10 @@ input.big-checkbox {
   margin: 0;
   padding: 0 0 4px 0;
   font-size: 1.5rem;
+}
+
+#disable-button {
+ color: rgba(0, 0, 0, 0.5);
 }
 
 /* ======
