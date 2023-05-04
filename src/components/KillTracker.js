@@ -17,7 +17,7 @@ const KillTracker = () => {
     <>
       <div className='add-form'>
         <div className='form-control'>
-          <input placeholder='Enemy Name' type='text' onChange={(e) => setEnemyName(e.target.value)}/>
+          <input placeholder='Enemy Name' value={enemyName} onChange={(e) => setEnemyName(e.target.value)}/>
         </div>
         <Button text='Submit' onClick={() => onClickSetEnemyName()}/>
       </div>
