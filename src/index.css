@@ -145,7 +145,7 @@ input.big-checkbox {
   min-height: 300px;
   border: 2px solid #A6B1E1;
   padding: 40px 30px 30px 30px;
-  border-radius: 5px;
+  border-radius: 15px;
 }
 
 .form-control {
@@ -211,16 +211,16 @@ input.big-checkbox {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
   justify-self: right;
-  align-self:center;
-  font-size:x-large;
+  align-self: center;
+  font-size: 1.5rem;
 }
 
 #health-change-neg {
   grid-column: 4 / 5;
   grid-row: 1 / 2;
   justify-self: left;
-  align-self:center;
-  font-size:x-large;
+  align-self: center;
+  font-size: 1.5rem;
 }
 
 /* ======
@@ -286,7 +286,7 @@ input.big-checkbox {
 .level-slot {
   display: flex;
   flex-flow: row;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .spell-grid {

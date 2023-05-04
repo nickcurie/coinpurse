@@ -54,7 +54,7 @@ const AbilityTracker = () => {
         <div className='add-form'>
             <div className='form-control'>
                 <input placeholder='Ability Name' value={abilityName} onChange={(e) => setAbilityName(e.target.value)}/>
-                <input type='number' placeholder='Number of Uses' id='health-setter' value={uses} onChange={(e) => setUses(e.target.valueAsNumber)}/>
+                <input type='number' placeholder='Number of Uses' id='health-setter' value={uses} onChange={(e) => setUses(e.target.valueAsNumber)} autoComplete='off'/>
             </div>
             <Button text='Submit' onClick={() => onClickHandleAddAbility()}/>
         </div>
