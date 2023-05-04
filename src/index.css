@@ -264,6 +264,18 @@ input.big-checkbox {
   font-size: 1.5rem;
 }
 
+#current-health-healthy {
+  color: green
+}
+
+#current-health-caution {
+  color: yellow
+}
+
+#current-health-danger {
+  color: red
+}
+
 /* ======
   coin tracker 
    ======  */

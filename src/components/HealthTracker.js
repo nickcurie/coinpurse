@@ -16,6 +16,7 @@ const HealthTracker = () => {
   const [fadeProp2, setFadeProp2] = useState({
     fade: 'fade-out',
   });
+  const [healthStatus, setHealthStatus] = useState('healthy');
 
   useEffect(() => {
     const timeout = setInterval(() => {
@@ -38,6 +39,17 @@ const HealthTracker = () => {
       clearInterval(timeout2);
     }
   }, [fadeProp, fadeProp2])
+
+  useEffect(() => {
+    let healthRatio = currentHealth / maxHealth;
+    if (healthRatio >= 0.75) {
+      setHealthStatus('healthy');
+    } else if (healthRatio < 0.75 && healthRatio >= 0.25) {
+      setHealthStatus('caution');
+    } else {
+      setHealthStatus('danger');
+    }
+  }, [currentHealth, maxHealth])
 
   const onClickSetMaxHealth = () => {
     if (!maxHealth) {
@@ -82,9 +94,11 @@ const HealthTracker = () => {
           </div>
         :
         <div className='health-content'>
-          <h1 id='health'>{currentHealth} / {maxHealth}</h1>
+          <h1 id='health'>
+            <span id={'current-health-'+healthStatus}>{currentHealth}</span> / <span>{maxHealth}</span>
+          </h1>
           <Fader text={'+'+healthDelta} textColor='green' fadeProp={fadeProp} propId='health-change-pos'></Fader>
-          <Fader text={healthDelta} textColor='red' fadeProp={fadeProp2} propId='health-change-neg'></Fader>
+          <Fader text={healthDelta.toString()} textColor='red' fadeProp={fadeProp2} propId='health-change-neg'></Fader>
           <Button text={'-'} onClick={() => constrainHealth('sub')} propId='health-minus'></Button>
           <Button text={'+'} onClick={() => constrainHealth('add')} propId='health-plus'></Button>
           <Button text={'Change Max HP'} onClick={() => setHasHealth(false)} propId={'change-max-health'}></Button>
