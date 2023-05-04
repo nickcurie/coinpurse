@@ -4,7 +4,7 @@ import React from 'react'
 const Fader = ({text, fadeProp, propId, textColor}) => {
   return (
     <>
-      <text style={{color: textColor}} id={propId} className={fadeProp.fade}>{text}</text>
+      <p style={{color: textColor}} id={propId} className={fadeProp.fade}>{text}</p>
     </>
   )
 }

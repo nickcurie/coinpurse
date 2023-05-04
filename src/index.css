@@ -137,7 +137,7 @@ input.big-checkbox {
   justify-items: stretch;
 }
 
-.counter-grid text {
+.counter-grid p {
   justify-self: center;
   margin: 1px;
   padding-left: 1rem;

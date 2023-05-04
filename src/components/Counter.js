@@ -28,7 +28,7 @@ const Counter = ({counterFor}) => {
     <div className='counter-and-label-grid'>
       <div className='counter-grid' id='rounded-rectangle'>
         <button className='as-text' onClick={() => constrainNumber('sub')} id={disabledProp}>{'-'}</button>
-        <text>{number}</text>
+        <p>{number}</p>
         <button className='as-text' onClick={() => constrainNumber('add')}>{'+'}</button>
       </div>
       <h2>{counterFor}</h2>
