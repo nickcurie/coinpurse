@@ -98,7 +98,7 @@ input.big-checkbox {
   border-width: 2px;
   height: 50px;
   width: 50px; 
-  font-size: 20px;
+  font-size: 2rem;
   font-family: inherit;
 }
 
@@ -169,7 +169,7 @@ input.big-checkbox {
 .tracker-grid {
   display: grid;
   grid-auto-flow: row;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(650px, 1fr));
 }
 
 .add-tracker {
@@ -211,6 +211,24 @@ input.big-checkbox {
   justify-content: center;
   align-items: center;
   gap: 30px;
+}
+
+.add-tracker-prompt {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.add-tracker-button-container {
+  margin: 1rem auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.add-tracker-button-container > * {
+  flex-grow: 1;
+  flex-basis: 30%;
 }
 
 /* ======
@@ -478,9 +496,9 @@ input.big-checkbox {
   kill tracker 
    ======  */
 
-@media (max-width: 100em){
+/* @media (max-width: 100em){
   .tracker-grid{
     grid-auto-flow: column;
     grid-template-rows: repeat(10, 1fr);
   }
-}
+} */

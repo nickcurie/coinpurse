@@ -49,7 +49,7 @@ const SpellSlotCard = ({ characterLevel, classType }) => {
                   <div className='level-slot'>
                     {
                       [...Array(x).keys()].map((y) => (
-                        <input type='checkbox' className='big-checkbox'/>
+                        <input type='checkbox' className='big-checkbox' id={'lvl-'+i+'-chk-'+y}/>
                       ))
                     }
                   </div>
