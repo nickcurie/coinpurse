@@ -72,10 +72,10 @@ const CoinTracker = () => {
                 ? 
                     <div className="add-form">
                         <div className="form-control">
-                            <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**3)} id='coin-setter'/> <span>PP</span>
-                            <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**2)} id='coin-setter'/> <span>GP</span>
-                            <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**1)} id='coin-setter'/> <span>SP</span>
-                            <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**0)} id='coin-setter'/> <span>CP</span>
+                            <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**3)} id='coin-setter'/> <span className='platinum-coin'>PP</span>
+                            <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**2)} id='coin-setter'/> <span className='gold-coin'>GP</span>
+                            <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**1)} id='coin-setter'/> <span className='silver-coin'>SP</span>
+                            <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**0)} id='coin-setter'/> <span className='copper-coin'>CP</span>
                         </div>
                         
                         <Button text='Submit' onClick={() => onClickIntialCoinValue(0)}/>
@@ -92,10 +92,10 @@ const CoinTracker = () => {
 
                                 <div className="" id='coinpicker'>
                                     <Dropdown options={[
-                                        { label: 'PP', value: 100**3},
-                                        { label: 'GP', value: 100**2},
-                                        { label: 'SP', value: 100},
-                                        { label: 'CP', value: 1}
+                                        { label: 'PP', value: 100**3, type: 'platinum-coin'},
+                                        { label: 'GP', value: 100**2, type: 'gold-coin'},
+                                        { label: 'SP', value: 100, type: 'silver-coin'},
+                                        { label: 'CP', value: 1, type: 'copper-coin'}
                                     ]} value={coinType} onChange={handleChange}/>
                                 </div>
                             </div>
