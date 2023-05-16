@@ -5,8 +5,8 @@ import Button from './Button'
 import Dropdown from './Dropdown'
 import SpellCard from './SpellCard'
 import SpellSlotCard from './SpellSlotCard'
-
-//TODO: level up 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUpLong } from '@fortawesome/free-solid-svg-icons'
 
 const SpellTracker = () => {
 
@@ -22,6 +22,7 @@ const SpellTracker = () => {
     const [classList, setClassList] = useState([{ label: 'Choose Class...', value: '' }]);
     const [playerClass, setPlayerClass] = useState('');
     const [playerLevel, setPlayerLevel] = useState(1);
+    const [hideLevelButton, setHideLevelButton] = useState('');
 
     const handleSpellDropdownChange = (event) => {
         setSpellIndex(event.target.value);
@@ -49,11 +50,10 @@ const SpellTracker = () => {
         }
     }
 
-    // const test = () => {
-    //     let newLvl = playerLevel + 1;
-    //     setPlayerLevel(newLvl);
-    //     console.log(playerLevel);
-    // }
+    const levelUp = () => {
+        let newLvl = parseInt(playerLevel) + 1;
+        clampLevel(newLvl);
+    }
 
     const fetchSpell = async (url, request) => {
         const res = await fetch(url + request);
@@ -96,6 +96,12 @@ const SpellTracker = () => {
         }
     }, [fetchAll, spell, playerClass])
 
+    useEffect(() => {
+        if (playerLevel === 20) {
+            setHideLevelButton('hide');
+        }
+    }, [playerLevel])
+
   return (
     <>
         {
@@ -110,6 +116,13 @@ const SpellTracker = () => {
                 </div>
             :
                 <>
+                    <div id='player-info-container'>
+                        <div id='player-info'>
+                            <p>{playerClass.charAt(0).toUpperCase() + playerClass.slice(1)}</p>
+                            <span>{'Level ' + playerLevel + ' '}</span>
+                            <button onClick={() => levelUp()} className={hideLevelButton}><FontAwesomeIcon icon={faUpLong} /></button>
+                        </div>
+                    </div>
                     <SpellSlotCard characterLevel={playerLevel} classType={playerClass}></SpellSlotCard>
                     <div className='add-form'>
                         <div>
