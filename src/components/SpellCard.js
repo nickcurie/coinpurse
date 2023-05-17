@@ -5,6 +5,14 @@ import { AiOutlineInfoCircle } from 'react-icons/ai'
 
 const SpellCard = ({ spellName, spellRange, spellLevel, spellDescription, childNum }) => {
 
+  const formatSpell = () => {
+    if (spellLevel === 0) {
+      return 'Cantrip'
+    } else {
+      return 'Level ' + spellLevel + ' spell'
+    }
+  }
+
   return (
     <div className='spell-card'>
         <div align='right'>
@@ -18,7 +26,7 @@ const SpellCard = ({ spellName, spellRange, spellLevel, spellDescription, childN
         <h1 align='center'>{ spellName }</h1>
         <div align='center'>
             <h2>{ spellRange }</h2>
-            <h2 id='level'>Level { spellLevel } spell</h2>
+            <h2 id='level'>{ formatSpell() }</h2>
         </div>
     </div>
   )
