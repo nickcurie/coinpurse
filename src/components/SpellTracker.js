@@ -55,14 +55,19 @@ const SpellTracker = () => {
         clampLevel(newLvl);
     }
 
+    // get contents of spell from the spell name
     const fetchSpell = async (url, request) => {
         const res = await fetch(url + request);
         const received = await res.json();
-
-        setSelectedSpells(selectedSpells => [...selectedSpells, received]);
+        const unsorted = [...selectedSpells, received]
+        const sorted = [...unsorted].sort((a, b) => {
+            return a['level'] - b['level'];
+        })
+        setSelectedSpells(sorted);
     }
 
-    async function getSpellList(url, request) {
+    // get a list of all spells
+    const getSpellList = async (url, request) => {
         const res = await fetch(url + request);
         const received = await res.json();
 
@@ -71,7 +76,8 @@ const SpellTracker = () => {
         }
     }
 
-    async function getClassList(url, request) {
+    // get a list of all classes
+    const getClassList = async (url, request) => {
         setLoadingAll(true);
         const res = await fetch(url + request);
         const received = await res.json();
@@ -98,13 +104,6 @@ const SpellTracker = () => {
             setHideLevelButton('hide');
         }
     }, [playerLevel])
-
-    useEffect(() => {
-        let sortedSpells = selectedSpells.sort((a, b) => {
-            return a['level'] - b['level']
-        })
-        setSelectedSpells(sortedSpells);
-    }, [selectedSpells, spell])
 
   return (
     <>
