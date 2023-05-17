@@ -24,8 +24,6 @@ const SpellTracker = () => {
     const [playerLevel, setPlayerLevel] = useState(1);
     const [hideLevelButton, setHideLevelButton] = useState('');
 
-    const [unsortedSpells, setUnsortedSpells] = useState([]);
-
     const handleSpellDropdownChange = (event) => {
         setSpellIndex(event.target.value);
     }
@@ -57,20 +55,19 @@ const SpellTracker = () => {
         clampLevel(newLvl);
     }
 
+    // get contents of spell from the spell name
     const fetchSpell = async (url, request) => {
         const res = await fetch(url + request);
         const received = await res.json();
-
-        // setSelectedSpells(selectedSpells => [...selectedSpells, received]);
-        setUnsortedSpells(unsortedSpells => [...unsortedSpells, received]);
-        console.log(unsortedSpells);
-        let sortedSpells = unsortedSpells.sort((a, b) => {
+        const unsorted = [...selectedSpells, received]
+        const sorted = [...unsorted].sort((a, b) => {
             return a['level'] - b['level'];
         })
-        setSelectedSpells(sortedSpells);
+        setSelectedSpells(sorted);
     }
 
-    async function getSpellList(url, request) {
+    // get a list of all spells
+    const getSpellList = async (url, request) => {
         const res = await fetch(url + request);
         const received = await res.json();
 
@@ -79,7 +76,8 @@ const SpellTracker = () => {
         }
     }
 
-    async function getClassList(url, request) {
+    // get a list of all classes
+    const getClassList = async (url, request) => {
         setLoadingAll(true);
         const res = await fetch(url + request);
         const received = await res.json();
@@ -99,20 +97,13 @@ const SpellTracker = () => {
         if (fetchAll && spell) {
             fetchSpell(api_url, 'api/spells/' + spell);
         }
-    }, [fetchAll, spell, playerClass])
+    }, [fetchAll, spell])
 
     useEffect(() => {
         if (playerLevel === 20) {
             setHideLevelButton('hide');
         }
     }, [playerLevel])
-
-    useEffect(() => {
-        let sortedSpells = selectedSpells.sort((a, b) => {
-            return a['level'] - b['level']
-        })
-        setSelectedSpells(sortedSpells);
-    }, [selectedSpells, spell])
 
   return (
     <>
