@@ -24,6 +24,8 @@ const SpellTracker = () => {
     const [playerLevel, setPlayerLevel] = useState(1);
     const [hideLevelButton, setHideLevelButton] = useState('');
 
+    const [unsortedSpells, setUnsortedSpells] = useState([]);
+
     const handleSpellDropdownChange = (event) => {
         setSpellIndex(event.target.value);
     }
@@ -59,7 +61,13 @@ const SpellTracker = () => {
         const res = await fetch(url + request);
         const received = await res.json();
 
-        setSelectedSpells(selectedSpells => [...selectedSpells, received]);
+        // setSelectedSpells(selectedSpells => [...selectedSpells, received]);
+        setUnsortedSpells(unsortedSpells => [...unsortedSpells, received]);
+        console.log(unsortedSpells);
+        let sortedSpells = unsortedSpells.sort((a, b) => {
+            return a['level'] - b['level'];
+        })
+        setSelectedSpells(sortedSpells);
     }
 
     async function getSpellList(url, request) {
