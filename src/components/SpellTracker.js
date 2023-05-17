@@ -97,7 +97,7 @@ const SpellTracker = () => {
         if (fetchAll && spell) {
             fetchSpell(api_url, 'api/spells/' + spell);
         }
-    }, [fetchAll, spell])
+    }, [fetchAll, spell, playerClass])
 
     useEffect(() => {
         if (playerLevel === 20) {
