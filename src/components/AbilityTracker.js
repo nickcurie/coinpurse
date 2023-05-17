@@ -43,6 +43,13 @@ const AbilityTracker = () => {
       };
     }
 
+    if (uses <= 0) {
+      return {
+        ok: false,
+        msg: "not enough uses"
+      };
+    }
+
     return {
       ok: true,
       msg: null
