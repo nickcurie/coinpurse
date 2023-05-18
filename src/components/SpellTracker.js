@@ -14,12 +14,12 @@ const SpellTracker = () => {
 
     const [fetchAll, setFetchAll] = useState(false);
     const [loadingAll, setLoadingAll] = useState(true);
-    const [spellList, setSpellList] = useState([{ label: 'Choose Spell...', value: '' }]);
+    const [spellList, setSpellList] = useState([{ label: 'Select Spell', value: '' }]);
     const [selectedSpells, setSelectedSpells] = useState([]);
     const [spellIndex, setSpellIndex] = useState('');
     const [spell, setSpell] = useState(null);
     const [classSelected, setClassSelected] = useState(false);
-    const [classList, setClassList] = useState([{ label: 'Choose Class...', value: '' }]);
+    const [classList, setClassList] = useState([{ label: 'Select Class', value: '' }]);
     const [playerClass, setPlayerClass] = useState('');
     const [playerLevel, setPlayerLevel] = useState(1);
     const [hideLevelButton, setHideLevelButton] = useState('');

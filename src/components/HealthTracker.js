@@ -95,13 +95,13 @@ const HealthTracker = () => {
         :
         <div className='health-content'>
           <h1 id='health'>
-            <span id={'current-health-'+healthStatus}>{currentHealth}</span> / <span>{maxHealth}</span>
+            <span id={'current-health-'+healthStatus}>{currentHealth}</span> / <span className='clickable' onClick={() => setHasHealth(false)}>{maxHealth}</span>
           </h1>
-          <Fader text={'+'+healthDelta} textColor='green' fadeProp={fadeProp} propId='health-change-pos'></Fader>
           <Fader text={healthDelta.toString()} textColor='red' fadeProp={fadeProp2} propId='health-change-neg'></Fader>
-          <Button text={'-'} onClick={() => constrainHealth('sub')} propId='health-minus'></Button>
+          <Fader text={'+'+healthDelta} textColor='green' fadeProp={fadeProp} propId='health-change-pos'></Fader>
           <Button text={'+'} onClick={() => constrainHealth('add')} propId='health-plus'></Button>
-          <Button text={'Change Max HP'} onClick={() => setHasHealth(false)} propId={'change-max-health'}></Button>
+          <Button text={'-'} onClick={() => constrainHealth('sub')} propId='health-minus'></Button>
+          {/* <Button text={'Change Max HP'} onClick={() => setHasHealth(false)} propId={'change-max-health'}></Button> */}
         </div>
       }
     </>
