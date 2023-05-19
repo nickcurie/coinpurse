@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/coinpurse/static/css/main.4c6a6a11.css",
-    "main.js": "/coinpurse/static/js/main.d6e586a7.js",
+    "main.css": "/coinpurse/static/css/main.4d2a393a.css",
+    "main.js": "/coinpurse/static/js/main.d0360e70.js",
     "static/js/787.21921df6.chunk.js": "/coinpurse/static/js/787.21921df6.chunk.js",
     "index.html": "/coinpurse/index.html",
-    "main.4c6a6a11.css.map": "/coinpurse/static/css/main.4c6a6a11.css.map",
-    "main.d6e586a7.js.map": "/coinpurse/static/js/main.d6e586a7.js.map",
+    "main.4d2a393a.css.map": "/coinpurse/static/css/main.4d2a393a.css.map",
+    "main.d0360e70.js.map": "/coinpurse/static/js/main.d0360e70.js.map",
     "787.21921df6.chunk.js.map": "/coinpurse/static/js/787.21921df6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4c6a6a11.css",
-    "static/js/main.d6e586a7.js"
+    "static/css/main.4d2a393a.css",
+    "static/js/main.d0360e70.js"
   ]
 }
