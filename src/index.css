@@ -75,15 +75,6 @@ header > * {
   pointer-events: none;
 }
 
-/* ======
-  styles 
-   ======  */
-
-input.big-checkbox {
-  width: 2em;
-  height: 2em;
-}
-
 input:not([type="checkbox"]) {
   height: 40px;
   margin: 5px;
@@ -92,7 +83,7 @@ input:not([type="checkbox"]) {
   font-family: 'Josefin Sans', sans-serif;
   text-align: center;
   background-color: hsl(233, 27%, 45%);
-  border: 2px solid rgb(0, 0, 0, 30%);
+  border: 1px solid rgb(0, 0, 0, 30%);
   border-radius: 10px;
 }
 
@@ -101,6 +92,15 @@ input::placeholder {
   opacity: .65;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 1.25rem;
+}
+
+/* ======
+  styles 
+   ======  */
+
+input.big-checkbox {
+  width: 2em;
+  height: 2em;
 }
 
 .btn-square {
@@ -114,8 +114,7 @@ input::placeholder {
 
 .btn-circle {
   border-radius: 50%;
-  border-color: #424874;
-  border-width: 2px;
+  border: 1px solid #424874;
   height: 50px;
   width: 50px; 
   font-size: 2rem;
@@ -472,7 +471,7 @@ input::placeholder {
 .ability-grid {
   display: grid;
   grid-auto-flow: row;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr 1fr;
   column-gap: 2em;
   row-gap: 2em;
   margin-top: 2em;
@@ -482,14 +481,15 @@ input::placeholder {
 .ability-card {
   display: grid;
   grid-auto-flow: row;
-  grid-template-columns: 4em 1fr;
-  column-gap: 2em;
+  grid-template-columns: 6em 1fr;
+  column-gap: 1em;
   align-items: center;
+  justify-self: left;
 }
 
 .check-grid {
   display: grid;
-  grid-template-columns: 2em 2em;
+  grid-template-columns: 2em 2em 2em;
   grid-auto-flow: row;
   row-gap: 6px;
 }

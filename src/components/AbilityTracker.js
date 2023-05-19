@@ -46,7 +46,7 @@ const AbilityTracker = () => {
     if (uses <= 0) {
       return {
         ok: false,
-        msg: "not enough uses"
+        msg: "too little uses"
       };
     }
 
@@ -56,12 +56,24 @@ const AbilityTracker = () => {
     };
   }
 
+  const restrictUses = (usesValue) => {
+    if (usesValue <= 8 && usesValue > 0) {
+      setUses(usesValue);
+    }
+  }
+
+  const restrictName = (name) => {
+    if (name.length <= 25) {
+      setAbilityName(name);
+    }
+  }
+
   return (
     <>
       <div className='add-form'>
           <div className='form-control'>
-              <input placeholder='Ability Name' value={abilityName} onChange={(e) => setAbilityName(e.target.value)}/>
-              <input type='number' placeholder='Number of Uses' id='health-setter' value={uses} onChange={(e) => setUses(e.target.valueAsNumber)} autoComplete='off'/>
+              <input placeholder='Ability Name' value={abilityName} onChange={(e) => restrictName(e.target.value)}/>
+              <input type='number' placeholder='Number of Uses' value={uses} onChange={(e) => restrictUses(e.target.valueAsNumber)} autoComplete='off'/>
           </div>
           <Button text='Submit' onClick={() => onClickHandleAddAbility()}/>
       </div>
