@@ -4,7 +4,7 @@ const Header = ({ title }) => {
     return (
         <header>
             <img src={logo} alt=''></img>
-            <h1>{title}</h1>
+            <h1 id='header-title'>{title}</h1>
         </header>
     )
 }

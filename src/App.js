@@ -32,7 +32,7 @@ function App() {
         <TrackerSegment title='Kill Tracker' trackerType='kill'/>
         {trackerSegments.map((item) => ( <TrackerSegment title={item +' Tracker'} trackerType={item.toLowerCase()} />))}
         <div className='add-tracker'>
-          <Button color='#D6E5E3' text='+' shape='circle' onClick={() => modal.current.showModal()}/>
+          <Button text='+' shape='circle' onClick={() => modal.current.showModal()}/>
         </div>
       </div>
       <dialog className='add-tracker-prompt' ref={modal}>
