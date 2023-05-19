@@ -101,8 +101,8 @@ const CoinTracker = () => {
               </div>
                       
               <div className="add-subtract">
-                <Button text='Add' color='#00d9e0' textColor='black' onClick={() => incrementCoins(customCoinAmount.current[0].value*coinType)}/>
-                <Button text='Subtract' color='#f8574f' textColor='black' onClick={() => incrementCoins(-customCoinAmount.current[0].value*coinType)}/>
+                <Button text='Add' textColor='black' onClick={() => incrementCoins(customCoinAmount.current[0].value*coinType)}/>
+                <Button text='Subtract' textColor='black' onClick={() => incrementCoins(-customCoinAmount.current[0].value*coinType)}/>
               </div>                                                         
             </div>
           </>
