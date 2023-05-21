@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 /* ======
   globals 
@@ -16,6 +17,7 @@ html {
 
 body {
   --primary-color: hsl(198, 21%, 12%);
+  --primary-color-900: hsl(198, 21%, 8%);
   --secondary-color: hsl(201, 10%, 27%);
   --secondary-color-1100: hsl(201, 10%, 85%);
   --secondary-color-900: hsl(201, 10%, 55%);
@@ -23,10 +25,11 @@ body {
   --secondary-color-500: hsl(201, 10%, 35%);
   --accent-color: hsl(283, 60%, 37%);
   --accent-color-900: hsl(283, 76%, 50%);
+  --main-font: 'Montserrat';
 
   min-height: 100%;
-  font-family: 'Josefin Sans', sans-serif;
-  background-image: linear-gradient(to right top, #182125, #1d262a, #232a2e, #282f33, #2e3438);
+  font-family: var(--main-font), sans-serif;
+  background-image: linear-gradient(to right, #182125, #1d262a, #232a2e, #282f33, #2e3438);
 }
 
 header {
@@ -37,7 +40,7 @@ header {
 }
 
 legend {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: var(--main-font), sans-serif;
   font-size: 2em; 
   font-weight: bold;
 }
@@ -59,12 +62,12 @@ button:focus {
 }
 
 select {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 32px;
+  font-family: var(--main-font), sans-serif;
+  font-size: 24px;
   background-color: var(--secondary-color-700);
   border: 1px solid var(--secondary-color-500);
   border-radius: 15px;
-  padding: 6px 3px 3px;
+  padding: 3px;
   text-align-last: center;
 }
 
@@ -93,7 +96,7 @@ input:not([type="checkbox"]) {
   margin: 5px;
   padding: 3px 7px;
   font-size: 1.25rem;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: var(--main-font), sans-serif;
   text-align: center;
   background-color: var(--secondary-color-700);
   border: 1px solid rgb(0, 0, 0, 30%);
@@ -103,7 +106,7 @@ input:not([type="checkbox"]) {
 input::placeholder {
   color: black;
   opacity: .65;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: var(--main-font), sans-serif;
   font-size: 1.25rem;
 }
 
@@ -209,7 +212,7 @@ input.big-checkbox {
   display: grid;
   grid-auto-flow: row;
   grid-template-columns: repeat(auto-fill, minmax(650px, 1fr));
-  column-gap: 40px;
+  column-gap: 60px;
   align-items: center;
 }
 
@@ -227,7 +230,7 @@ input.big-checkbox {
   padding: 40px 30px 30px 30px;
   border-radius: 15px;
   background-color: var(--secondary-color);
-  box-shadow: 4px 4px 15px var(--accent-color-900);
+  box-shadow: 4px 4px 15px var(--primary-color-900);
 }
 
 .form-control {
