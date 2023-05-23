@@ -123,7 +123,7 @@ const SpellTracker = () => {
                         <div id='player-info'>
                             <p>{playerClass.charAt(0).toUpperCase() + playerClass.slice(1)}</p>
                             <span>{'Level ' + playerLevel + ' '}</span>
-                            <button onClick={() => levelUp()} className={hideLevelButton}><FontAwesomeIcon icon={faTurnUp} /></button>
+                            <button title='Level Up!' onClick={() => levelUp()} className={hideLevelButton}><FontAwesomeIcon icon={faTurnUp}/></button>
                         </div>
                     </div>
                     <SpellSlotCard characterLevel={playerLevel} classType={playerClass}></SpellSlotCard>
@@ -145,8 +145,12 @@ const SpellTracker = () => {
                     </div>
                     <div className='spell-grid'>
                         {
+                            //TODO: turn these properties into a struct
                             selectedSpells.map((spell, i) => (
-                                <SpellCard spellName={spell['name']} spellRange={spell['range']} spellLevel={spell['level']} spellDescription={spell['desc'][0]} childNum={i}/>
+                                <SpellCard spellName={spell['name']} spellRange={spell['range']} 
+                                    spellLevel={spell['level']} spellDescription={spell['desc'][0]} childNum={i}
+                                    spellCastTime={spell['casting_time']} spellDuration={spell['duration']} 
+                                    spellConcentration={spell['concentration']}/>
                             ))
                         }
                     </div>

@@ -145,11 +145,19 @@ input.big-checkbox {
   color: var(--secondary-color-900);
 }
 
-#tooltip {
+#desc-tooltip {
   width: 20em;
   display: block;
   overflow-wrap: break-word;
   font-size: large;
+}
+
+#extra-tooltip {
+  width: 15em;
+  display: block;
+  overflow-wrap: break-word;
+  font-size: large;
+  text-align: center;
 }
 
 .fade-in {
@@ -416,6 +424,14 @@ input.big-checkbox {
 .spell-card {
   cursor: pointer;
   user-select: none;
+}
+
+.info-container {
+  display: flex;
+}
+
+.info-container-left {
+  margin-left: auto;
 }
 
 #level {

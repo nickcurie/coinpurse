@@ -1,9 +1,11 @@
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css'
-import { AiOutlineInfoCircle } from 'react-icons/ai'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleInfo, faCircleQuestion } from '@fortawesome/free-solid-svg-icons'
 
 
-const SpellCard = ({ spellName, spellRange, spellLevel, spellDescription, childNum }) => {
+
+const SpellCard = ({ spellName, spellRange, spellLevel, spellDescription, childNum, spellCastTime, spellDuration, spellConcentration }) => {
 
   const formatSpell = () => {
     if (spellLevel === 0) {
@@ -36,18 +38,32 @@ const SpellCard = ({ spellName, spellRange, spellLevel, spellDescription, childN
 
   return (
     <div className='spell-card' onClick={() => handleSpellCardClick()}>
-        <div align='right'>
-          <AiOutlineInfoCircle id={'desc-' + childNum}/>
+      <div className='info-container'>
+        <FontAwesomeIcon icon={faCircleQuestion} id={'extra-' + childNum}/>
+        <FontAwesomeIcon icon={faCircleInfo} id={'desc-' + childNum} className='info-container-left'/>
+      </div>
+      <Tooltip anchorId={'desc-' + childNum} place='top' className='desc-tooltip'>
+        <div>
+          <span id='desc-tooltip'>{ spellDescription }</span>
         </div>
-        <Tooltip anchorId={'desc-' + childNum} place='top' className='tooltip'>
-          <div>
-            <span id='tooltip'>{ spellDescription }</span>
-          </div>
-        </Tooltip>
-        <h1 align='center'>{ spellName }</h1>
-        <div align='center'>
-            <h2>{ spellRange }</h2>
-            <h2 id='level'>{ formatSpell() }</h2>
+      </Tooltip>
+      <Tooltip anchorId={'extra-' + childNum} place='top' className='extra-tooltip'>
+        <div id='extra-tooltip'>
+          <p>{'Cast Time: ' + spellCastTime}</p>
+          <p>{'Duration: ' + spellDuration} </p>
+          {
+            spellConcentration
+            ?
+            <p>Concentration</p>
+            :
+            <p></p>
+          }
+        </div>
+      </Tooltip>
+      <h1 align='center'>{ spellName }</h1>
+      <div align='center'>
+          <h2>{ spellRange }</h2>
+          <h2 id='level'>{ formatSpell() }</h2>
         </div>
     </div>
   )
