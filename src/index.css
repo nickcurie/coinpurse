@@ -51,7 +51,6 @@ button {
   color: black;
   border: none;
   cursor: pointer;
-  box-shadow: 2px 2px 3px var(--primary-color-900);
 }
 
 button:active {
@@ -131,6 +130,7 @@ input.big-checkbox {
   text-decoration: none;
   font-size: 20px;
   font-family: inherit;
+  box-shadow: 2px 2px 3px var(--primary-color-900);
 }
 
 .btn-circle {
@@ -139,6 +139,7 @@ input.big-checkbox {
   width: 50px; 
   font-size: 2rem;
   font-family: inherit;
+  box-shadow: 2px 2px 3px var(--primary-color-900);
 }
 
 #legend-title {
@@ -184,25 +185,19 @@ input.big-checkbox {
 
 .counter-grid p {
   justify-self: center;
-  margin: 1px;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  font-size: 1.875rem;
+  padding-left: .75rem;
+  padding-right: .75rem;
+  font-size: 1.75rem;
 }
 
 #rounded-rectangle {
-  width: 8.2rem;
-  height: 2rem;
   border: 1px solid var(--secondary-color-900);
   border-radius: 2rem;
 }
 
 .as-text {
   background: none;
-  border: none;
-  margin: 0;
-  padding: 0 0 4px 0;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 #disable-button {

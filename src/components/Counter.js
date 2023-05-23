@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 
 const Counter = ({counterFor}) => {
 
@@ -27,9 +29,9 @@ const Counter = ({counterFor}) => {
   return (
     <div className='counter-and-label-grid'>
       <div className='counter-grid' id='rounded-rectangle'>
-        <button className='as-text' onClick={() => constrainNumber('sub')} id={disabledProp}>{'-'}</button>
+        <button className='as-text' onClick={() => constrainNumber('sub')} id={disabledProp}><FontAwesomeIcon icon={faMinus}></FontAwesomeIcon></button>
         <p>{number}</p>
-        <button className='as-text' onClick={() => constrainNumber('add')}>{'+'}</button>
+        <button className='as-text' onClick={() => constrainNumber('add')}><FontAwesomeIcon icon={faPlus}></FontAwesomeIcon></button>
       </div>
       <h2>{counterFor}</h2>
     </div>
