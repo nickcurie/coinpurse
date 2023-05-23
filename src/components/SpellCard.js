@@ -13,8 +13,29 @@ const SpellCard = ({ spellName, spellRange, spellLevel, spellDescription, childN
     }
   }
 
+  const handleSpellCardClick = () => {
+    // find a valid checkbox to check
+    // if we cant find one do nothing
+    // if all checkboxes are checked do nothing
+    let checkboxId = 'lvl-' + spellLevel + '-chk-';
+    let checkbox;
+    for (let i = 0; i < 4; i++) {
+      checkbox = document.getElementById(checkboxId + i);
+      // if we hit a checkbox that doesn't exist we can break out of the loop to save cycles
+      // since checkboxes are in increasing numeric order
+      if (checkbox == null) {
+        break;
+      }
+      // if the checkbox we found isn't checked, check it and break out of the loop
+      if (!checkbox.checked) {
+        checkbox.checked = true;
+        break;
+      }
+    }
+  }
+
   return (
-    <div className='spell-card'>
+    <div className='spell-card' onClick={() => handleSpellCardClick()}>
         <div align='right'>
           <AiOutlineInfoCircle id={'desc-' + childNum}/>
         </div>

@@ -6,7 +6,7 @@ import Dropdown from './Dropdown'
 import SpellCard from './SpellCard'
 import SpellSlotCard from './SpellSlotCard'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUpLong } from '@fortawesome/free-solid-svg-icons'
+import { faUpLong, faTurnUp } from '@fortawesome/free-solid-svg-icons'
 
 const SpellTracker = () => {
 
@@ -123,7 +123,7 @@ const SpellTracker = () => {
                         <div id='player-info'>
                             <p>{playerClass.charAt(0).toUpperCase() + playerClass.slice(1)}</p>
                             <span>{'Level ' + playerLevel + ' '}</span>
-                            <button onClick={() => levelUp()} className={hideLevelButton}><FontAwesomeIcon icon={faUpLong} /></button>
+                            <button onClick={() => levelUp()} className={hideLevelButton}><FontAwesomeIcon icon={faTurnUp} /></button>
                         </div>
                     </div>
                     <SpellSlotCard characterLevel={playerLevel} classType={playerClass}></SpellSlotCard>

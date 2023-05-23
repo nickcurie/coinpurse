@@ -51,6 +51,7 @@ button {
   color: black;
   border: none;
   cursor: pointer;
+  box-shadow: 2px 2px 3px var(--primary-color-900);
 }
 
 button:active {
@@ -412,10 +413,10 @@ input.big-checkbox {
   margin-top: 2em;
 }
 
-/* .spell-card {
-  border: 1px solid var(--secondary-color-900);
-  border-radius: 10px;
-} */
+.spell-card {
+  cursor: pointer;
+  user-select: none;
+}
 
 #level {
   margin-bottom: 1rem;

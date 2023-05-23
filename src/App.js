@@ -7,7 +7,6 @@ import TrackerSegment from './components/TrackerSegment';
 //todo ammo tracker
 //todo weight tracker
 //todo DM vision
-//todo adding widgets
 //todo notes
 //todo removing items
 
