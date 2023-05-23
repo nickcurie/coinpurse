@@ -7,12 +7,16 @@ import { faCircleInfo, faCircleQuestion } from '@fortawesome/free-solid-svg-icon
 
 const SpellCard = ({ spellName, spellRange, spellLevel, spellDescription, childNum, spellCastTime, spellDuration, spellConcentration }) => {
 
-  const formatSpell = () => {
+  const formatSpellLevel = () => {
     if (spellLevel === 0) {
       return 'Cantrip'
     } else {
-      return 'Level ' + spellLevel + ' spell'
+      return 'Level ' + spellLevel
     }
+  }
+
+  const formatSpellName = () => {
+    return spellName.split('/').join('/ ')
   }
 
   const handleSpellCardClick = () => {
@@ -56,15 +60,13 @@ const SpellCard = ({ spellName, spellRange, spellLevel, spellDescription, childN
             ?
             <p>Concentration</p>
             :
-            <p></p>
+            <></>
           }
         </div>
       </Tooltip>
-      <h1 align='center'>{ spellName }</h1>
-      <div align='center'>
-          <h2>{ spellRange }</h2>
-          <h2 id='level'>{ formatSpell() }</h2>
-        </div>
+      <h2>{ formatSpellName() }</h2>
+      <h3>{ spellRange }</h3>
+      <h3 id='level'>{ formatSpellLevel() }</h3>
     </div>
   )
 }

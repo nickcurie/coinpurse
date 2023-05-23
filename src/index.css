@@ -201,7 +201,7 @@ input.big-checkbox {
 }
 
 #disable-button {
- color: rgba(0, 0, 0, 0.5);
+ color: rgba(0, 0, 0, 0.3);
 }
 
 .clickable {
@@ -215,7 +215,9 @@ input.big-checkbox {
 .tracker-grid {
   display: grid;
   grid-auto-flow: row;
-  grid-template-columns: repeat(auto-fill, minmax(650px, 1fr));
+  padding-left: 2em;
+  padding-right: 2em;
+  grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
   column-gap: 60px;
   align-items: center;
 }
@@ -226,7 +228,6 @@ input.big-checkbox {
 }
 
 .fieldset-content {
-  max-width: 650px;
   margin: 30px auto;
   overflow: auto;
   min-height: 300px;
@@ -410,7 +411,7 @@ input.big-checkbox {
 .spell-grid {
   display: grid;
   grid-auto-flow: row;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   column-gap: 2em;
   row-gap: 2em;
   margin-top: 2em;
