@@ -217,8 +217,7 @@ input.big-checkbox {
 .tracker-grid {
   display: grid;
   grid-auto-flow: row;
-  padding-left: 2em;
-  padding-right: 2em;
+  padding: 0 clamp(.5em, 1vw + .125em, 2em);
   grid-template-columns: repeat(auto-fit, minmax(580px, 1fr));
   gap: 30px 60px;
   align-items: center;
