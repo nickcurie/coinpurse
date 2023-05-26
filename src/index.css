@@ -548,7 +548,7 @@ input.big-checkbox {
 .ability-grid {
   display: grid;
   grid-auto-flow: row;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   column-gap: 2em;
   row-gap: 2em;
   margin-top: 3em;
@@ -556,20 +556,35 @@ input.big-checkbox {
 }
 
 .ability-card {
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  gap: 1em;
+  align-items: center;
+  justify-self: center;
+}
+
+/* .ability-card {
   display: grid;
   grid-auto-flow: row;
   grid-template-columns: 6em 1fr;
   column-gap: 1em;
   align-items: center;
   justify-self: left;
-}
+} */
 
 .check-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1.75em);
+  gap: 6px;
+}
+
+/* .check-grid {
   display: grid;
   grid-template-columns: 2em 2em 2em;
   grid-auto-flow: row;
   row-gap: 6px;
-}
+} */
 
 /* Box aspect */
 .check-grid input[type="checkbox"]::before {

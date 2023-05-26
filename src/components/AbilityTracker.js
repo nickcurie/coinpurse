@@ -3,6 +3,7 @@ import AbilityCard from './AbilityCard';
 import Button from './Button';
 
 const AbilityTracker = () => {
+  //TODO: don't use checkboxes for use tracking
 
   // [["x", 3], ["y", 4]]
   const [abilities, setAbilities] = useState([]);
