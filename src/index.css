@@ -41,7 +41,7 @@ header {
 
 legend {
   font-family: var(--main-font), sans-serif;
-  font-size: 2em; 
+  font-size: clamp(1.125em, 5vw + .5em, 2em); 
   font-weight: bold;
 }
 
@@ -420,9 +420,15 @@ input.big-checkbox {
 
 .class-selector {
   display: flex;
+  flex-flow: row wrap;
   justify-content: center;
   column-gap: 1em;
   align-items: center;
+}
+
+.class-selector > * {
+  flex: 1;
+  min-width: 10rem;
 }
 
 .slots-grid {
@@ -431,12 +437,13 @@ input.big-checkbox {
   grid-auto-flow: row;
   grid-template-columns: 1fr 1fr 1fr;
   row-gap: 1em;
+  column-gap: 1em;
 }
 
 .level-slot {
   display: flex;
-  flex-flow: row;
-  gap: 1rem;
+  flex-flow: row wrap;
+  gap: clamp(.125rem, 3vw + .125rem, 1.25rem);
   justify-content: center;
 }
 
@@ -611,5 +618,9 @@ input.big-checkbox {
 @media (max-width: 780px){
   .tracker-grid {
     grid-template-columns: 1fr;
+  }
+
+  .slots-grid {
+    grid-template-columns: 1fr 1fr;
   }
 }
