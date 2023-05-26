@@ -5,9 +5,10 @@ import Dropdown from './Dropdown'
 
 const CoinTracker = () => {
 
-  const [coins, setCoins] = useState(0)
-  const [hasSubmittedCoins, setHasSubmittedCoins] = useState(false)
-  const [coinType, setCoinType] = useState(1)
+  const [coins, setCoins] = useState(0);
+  const [numCoins, setNumCoins] = useState('');
+  const [hasSubmittedCoins, setHasSubmittedCoins] = useState(false);
+  const [coinType, setCoinType] = useState(1);
 
   const customCoinAmount = useRef(null)
 
@@ -68,11 +69,23 @@ const CoinTracker = () => {
         !hasSubmittedCoins 
         ? 
           <div className="add-form">
-            <div className="form-control">
-              <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**3)} id='coin-setter'/> <span className='platinum-coin'>PP</span>
-              <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**2)} id='coin-setter'/> <span className='gold-coin'>GP</span>
-              <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**1)} id='coin-setter'/> <span className='silver-coin'>SP</span>
-              <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**0)} id='coin-setter'/> <span className='copper-coin'>CP</span>
+            <div className="coin-setters">
+              <div className='coin-setter'>
+                <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**3)}/> 
+                <span className='platinum-coin'>PP</span>
+              </div>
+              <div className='coin-setter'>
+                <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**2)}/> 
+                <span className='gold-coin'>GP</span>
+              </div>
+              <div className='coin-setter'>
+                <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**1)}/> 
+                <span className='silver-coin'>SP</span>
+              </div>
+              <div className='coin-setter'>
+                <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**0)}/> 
+                <span className='copper-coin'>CP</span>
+              </div>
             </div>
               
             <Button text='Submit' onClick={() => onClickInitialCoinValue()}/>
@@ -83,26 +96,19 @@ const CoinTracker = () => {
               {calcCoinValue(coins)}
             </h2>
             <div className="manipulate-coins">
-              <div className='flex-container'>
-                <div className="form-control">
-                  <form ref={customCoinAmount}>
-                    <input type='number' placeholder='Amount'/>
-                  </form>
-                </div>
-
-                <div className="">
-                  <Dropdown options={[
-                    { label: 'PP', value: 100**3, type: 'platinum-coin'},
-                    { label: 'GP', value: 100**2, type: 'gold-coin'},
-                    { label: 'SP', value: 100, type: 'silver-coin'},
-                    { label: 'CP', value: 1, type: 'copper-coin'}
-                  ]} value={coinType} onChange={handleDenominationChange}/>
-                </div>
+              <div className="coin-selector">
+                <input type='number' placeholder='Amount' value={numCoins} onChange={(e) => setNumCoins(e.target.value)}/>
+                <Dropdown options={[
+                  { label: 'PP', value: 100**3, type: 'platinum-coin'},
+                  { label: 'GP', value: 100**2, type: 'gold-coin'},
+                  { label: 'SP', value: 100, type: 'silver-coin'},
+                  { label: 'CP', value: 1, type: 'copper-coin'}
+                ]} value={coinType} onChange={handleDenominationChange}/>
               </div>
                       
               <div className="add-subtract">
-                <Button text='Add' textColor='black' onClick={() => incrementCoins(customCoinAmount.current[0].value*coinType)}/>
-                <Button text='Subtract' textColor='black' onClick={() => incrementCoins(-customCoinAmount.current[0].value*coinType)}/>
+                <Button text='Add' textColor='black' onClick={() => incrementCoins(numCoins*coinType)}/>
+                <Button text='Subtract' textColor='black' onClick={() => incrementCoins(-numCoins*coinType)}/>
               </div>                                                         
             </div>
           </>
