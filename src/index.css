@@ -348,21 +348,37 @@ input.big-checkbox {
 
 .manipulate-coins {
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 2em;
+  margin-top: 2em;
+}
+
+.coin-selector {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  column-gap: 1em;
+  align-items: center;
+}
+
+.coin-selector > * {
+  flex: 1;
 }
 
 .add-subtract {
+  width: 100%;
   display: flex;
+  gap: 1em;
   justify-content: center;
 }
  
 .flex-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 2em;
+  gap: 1em;
 }
 
 .coin-setters {
