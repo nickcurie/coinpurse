@@ -62,8 +62,9 @@ button:focus {
 }
 
 select {
+  width: 100%;
   font-family: var(--main-font), sans-serif;
-  font-size: 24px;
+  font-size: 1.5rem;
   background-color: var(--secondary-color-700);
   border: 1px solid var(--secondary-color-500);
   border-radius: 15px;
@@ -93,6 +94,7 @@ header > * {
 
 input:not([type="checkbox"]) {
   height: 40px;
+  width: 100%;
   margin: 5px;
   padding: 3px 7px;
   font-size: 1.25rem;
@@ -217,8 +219,8 @@ input.big-checkbox {
   grid-auto-flow: row;
   padding-left: 2em;
   padding-right: 2em;
-  grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
-  column-gap: 60px;
+  grid-template-columns: repeat(auto-fit, minmax(580px, 1fr));
+  gap: 30px 60px;
   align-items: center;
 }
 
@@ -228,7 +230,6 @@ input.big-checkbox {
 }
 
 .fieldset-content {
-  margin: 30px auto;
   overflow: auto;
   min-height: 300px;
   border: 2px solid var(--secondary-color-700);
@@ -240,12 +241,14 @@ input.big-checkbox {
 
 .form-control {
   display: flex;
-  align-items: center;
+  flex-flow: row wrap;
   justify-content: space-around;
+  align-content: stretch;
 }
 
-.form-control span {
-  margin-right: 10px;
+.form-control > * {
+  flex: 1;
+  min-width: 10rem;
 }
 
 .add-form {
@@ -362,9 +365,38 @@ input.big-checkbox {
   gap: 2em;
 }
 
-#coin-setter {
-  width: 15%;
+.coin-setters {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-content: stretch;
 }
+
+.coin-setters > * {
+  min-width: 10rem;
+  width: 50%;
+  display: inline-flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.coin-setters > * input {
+  width: 50%;
+  margin-right: .5rem;
+}
+
+/* .coin-setter {
+  width: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+/* .coin-setter input {
+  width: 50%;
+  margin-right: .5rem;
+} */
 
 .platinum-coin {
   color: #a8a7ae
@@ -576,9 +608,8 @@ input.big-checkbox {
   kill tracker 
    ======  */
 
-/* @media (max-width: 100em){
-  .tracker-grid{
-    grid-auto-flow: column;
-    grid-template-rows: repeat(10, 1fr);
+@media (max-width: 780px){
+  .tracker-grid {
+    grid-template-columns: 1fr;
   }
-} */
+}

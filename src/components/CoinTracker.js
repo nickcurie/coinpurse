@@ -68,11 +68,23 @@ const CoinTracker = () => {
         !hasSubmittedCoins 
         ? 
           <div className="add-form">
-            <div className="form-control">
-              <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**3)} id='coin-setter'/> <span className='platinum-coin'>PP</span>
-              <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**2)} id='coin-setter'/> <span className='gold-coin'>GP</span>
-              <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**1)} id='coin-setter'/> <span className='silver-coin'>SP</span>
-              <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**0)} id='coin-setter'/> <span className='copper-coin'>CP</span>
+            <div className="coin-setters">
+              <div className='coin-setter'>
+                <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**3)}/> 
+                <span className='platinum-coin'>PP</span>
+              </div>
+              <div className='coin-setter'>
+                <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**2)}/> 
+                <span className='gold-coin'>GP</span>
+              </div>
+              <div className='coin-setter'>
+                <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**1)}/> 
+                <span className='silver-coin'>SP</span>
+              </div>
+              <div className='coin-setter'>
+                <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**0)}/> 
+                <span className='copper-coin'>CP</span>
+              </div>
             </div>
               
             <Button text='Submit' onClick={() => onClickInitialCoinValue()}/>
