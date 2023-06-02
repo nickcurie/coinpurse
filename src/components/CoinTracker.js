@@ -12,6 +12,12 @@ const CoinTracker = () => {
 
   const customCoinAmount = useRef(null)
 
+  const platinumDenomination = 100**3;
+  const goldDenomination = 100**2;
+  const silverDenomination = 100**1;
+  const copperDenomination = 100**0;
+  
+
   const handleDenominationChange = (event) => {
     setCoinType(event.target.value);
   }
@@ -30,25 +36,26 @@ const CoinTracker = () => {
   
   const incrementCoins = (val) => {
     setCoins(coins + val);
+    setNumCoins('');
   }
 
   const calcCoinValue = (coins) => {
     let numberOfCoins = coins;
     let coinString = "";
 
-    if(numberOfCoins >= 1000000){ //able to convert to PP
-      coinString = coinString + Math.floor(numberOfCoins / 1000000) + " PP ";
-      numberOfCoins = numberOfCoins % 1000000;
+    if(numberOfCoins >= platinumDenomination){ //able to convert to PP
+      coinString = coinString + Math.floor(numberOfCoins / platinumDenomination) + " PP ";
+      numberOfCoins = numberOfCoins % platinumDenomination;
     }
 
-    if(numberOfCoins > 10000){ //able to convert to GP
-      coinString = coinString + Math.floor(numberOfCoins / 10000) + " GP ";
-      numberOfCoins = numberOfCoins % 10000;
+    if(numberOfCoins >= goldDenomination){ //able to convert to GP
+      coinString = coinString + Math.floor(numberOfCoins / goldDenomination) + " GP ";
+      numberOfCoins = numberOfCoins % goldDenomination;
     }
 
-    if(numberOfCoins > 100){ //able to convert to SP
-      coinString = coinString + Math.floor(numberOfCoins / 100) + " SP ";
-      numberOfCoins = numberOfCoins % 100;
+    if(numberOfCoins >= silverDenomination){ //able to convert to SP
+      coinString = coinString + Math.floor(numberOfCoins / silverDenomination) + " SP ";
+      numberOfCoins = numberOfCoins % silverDenomination;
     }
 
     if(numberOfCoins >= 0){ //able to convert to CP
@@ -71,19 +78,19 @@ const CoinTracker = () => {
           <div className="add-form">
             <div className="coin-setters">
               <div className='coin-setter'>
-                <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**3)}/> 
+                <input type="number" onChange={(e) => setCoins(coins + e.target.value * platinumDenomination)}/> 
                 <span className='platinum-coin'>PP</span>
               </div>
               <div className='coin-setter'>
-                <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**2)}/> 
+                <input type="number" onChange={(e) => setCoins(coins + e.target.value * goldDenomination)}/> 
                 <span className='gold-coin'>GP</span>
               </div>
               <div className='coin-setter'>
-                <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**1)}/> 
+                <input type="number" onChange={(e) => setCoins(coins + e.target.value * silverDenomination)}/> 
                 <span className='silver-coin'>SP</span>
               </div>
               <div className='coin-setter'>
-                <input type="number" onBlur={(e) => setCoins(coins + e.target.value * 100**0)}/> 
+                <input type="number" onChange={(e) => setCoins(coins + e.target.value * copperDenomination)}/> 
                 <span className='copper-coin'>CP</span>
               </div>
             </div>
@@ -99,10 +106,10 @@ const CoinTracker = () => {
               <div className="coin-selector">
                 <input type='number' placeholder='Amount' value={numCoins} onChange={(e) => setNumCoins(e.target.value)}/>
                 <Dropdown options={[
-                  { label: 'PP', value: 100**3, type: 'platinum-coin'},
-                  { label: 'GP', value: 100**2, type: 'gold-coin'},
-                  { label: 'SP', value: 100, type: 'silver-coin'},
-                  { label: 'CP', value: 1, type: 'copper-coin'}
+                  { label: 'PP', value: platinumDenomination, type: 'platinum-coin'},
+                  { label: 'GP', value: goldDenomination, type: 'gold-coin'},
+                  { label: 'SP', value: silverDenomination, type: 'silver-coin'},
+                  { label: 'CP', value: copperDenomination, type: 'copper-coin'}
                 ]} value={coinType} onChange={handleDenominationChange}/>
               </div>
                       

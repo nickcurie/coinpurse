@@ -43,8 +43,8 @@ const SpellCard = ({ spellName, spellRange, spellLevel, spellDescription, childN
   return (
     <div className='spell-card' onClick={() => handleSpellCardClick()}>
       <div className='info-container'>
-        <FontAwesomeIcon icon={faCircleQuestion} id={'extra-' + childNum}/>
-        <FontAwesomeIcon icon={faCircleInfo} id={'desc-' + childNum} className='info-container-left'/>
+        <FontAwesomeIcon icon={faCircleInfo} id={'extra-' + childNum}/>
+        <FontAwesomeIcon icon={faCircleQuestion} id={'desc-' + childNum} className='info-container-left'/>
       </div>
       <Tooltip anchorId={'desc-' + childNum} place='top' className='desc-tooltip'>
         <div>
