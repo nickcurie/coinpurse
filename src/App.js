@@ -14,32 +14,45 @@ function App() {
   const [trackerSegments, setTrackerSegments] = useState([]);
   const modal = useRef(null);
 
-  const addTrackerSegmentAndClose = (trackerType) => {
-    setTrackerSegments([...trackerSegments, trackerType]);
-    modal.current.close();
-  };
+  const addTrackerSegmentAndClose = (trackerType, data) => {
+    setTrackerSegments([...trackerSegments, {'trackerType' : trackerType, 'data' : data}]);
+    if (modal.current) {
+      modal.current.close();
+    }
+  }
+
+  // Technically, it's an issue that multiple elements can have the same ID
+  // but it's fine here because it'll only grab the data from the first card with said id
+  const printConfig = () => {
+    var json = JSON.stringify({
+      "currentHealth" : document.getElementById('current-health').innerHTML,
+      "maxHealth" : document.getElementById('max-health').innerHTML
+    });
+    document.getElementById('config-input').value = json;
+  }
+
+  const loadConfig = () => {
+    var json = JSON.parse(document.getElementById('config-input').value);
+    if (json.currentHealth && json.maxHealth) {
+      addTrackerSegmentAndClose("Health", {'currentHealth' : json.currentHealth, 'maxHealth' : json.maxHealth})
+    }
+  }
 
   return (
     <div className="App">
-      <Header title="Coinpurse" />
-      <div className="tracker-grid">
-        <TrackerSegment title="Health Tracker" trackerType="health" />
-        <TrackerSegment title="Coin Tracker" trackerType="coin" />
-        <TrackerSegment title="Spell Tracker" trackerType="spell" />
-        <TrackerSegment title="Ability Tracker" trackerType="ability" />
-        <TrackerSegment title="Kill Tracker" trackerType="kill" />
-        {trackerSegments.map((item) => (
-          <TrackerSegment
-            title={item + " Tracker"}
-            trackerType={item.toLowerCase()}
-          />
-        ))}
-        <div className="add-tracker">
-          <Button
-            text="+"
-            shape="circle"
-            onClick={() => modal.current.showModal()}
-          />
+      <Header title='Coinpurse'/>
+      <Button text="Print Config" onClick={() => printConfig()}/>
+      <Button text="Load Config" onClick={() => loadConfig()}/>
+      <input type="text" id="config-input" />
+      <div className='tracker-grid'>
+        <TrackerSegment title='Health Tracker' trackerType='health'/>
+        <TrackerSegment title='Coin Tracker' trackerType='coin'/>
+        <TrackerSegment title='Spell Tracker' trackerType='spell'/>
+        <TrackerSegment title='Ability Tracker' trackerType='ability'/>
+        <TrackerSegment title='Kill Tracker' trackerType='kill'/>
+        {trackerSegments.map((item) => ( <TrackerSegment title={item.trackerType +' Tracker'} trackerType={item.trackerType.toLowerCase()} data={item.data} />))}
+        <div className='add-tracker'>
+          <Button text='+' shape='circle' onClick={() => modal.current.showModal()}/>
         </div>
       </div>
       <dialog className="add-tracker-prompt" ref={modal}>

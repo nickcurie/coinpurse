@@ -6,30 +6,33 @@ import SpellTracker from "./SpellTracker";
 import AbilityTracker from "./AbilityTracker";
 import KillTracker from "./KillTracker";
 
-const renderSwitch = (param) => {
-  switch (param) {
-    case "coin":
-      return <CoinTracker />;
-    case "spell":
-      return <SpellTracker />;
-    case "health":
-      return <HealthTracker />;
-    case "ability":
-      return <AbilityTracker />;
-    case "kill":
-      return <KillTracker />;
-    default:
-      return <Button text="not implemented" />;
-  }
-};
+const renderSwitch = (param, data) => {
+    switch(param){
+        case 'coin':
+            return <CoinTracker/>
+        case 'spell':
+            return <SpellTracker/>
+        case 'health':
+            return <HealthTracker loadCurrentHealth={data?.currentHealth} loadMaxHealth={data?.maxHealth}/>
+        case 'ability':
+            return <AbilityTracker/>
+        case 'kill':
+            return <KillTracker/>
+        default:
+            return <Button text='not implemented'/>
+    }
+}
 
-const TrackerSegment = ({ title, trackerType }) => {
+const TrackerSegment = ({ title, trackerType, data }) => {
   return (
     <div>
-      <fieldset className="fieldset-content">
-        <legend id="legend-title">{title}</legend>
-        {renderSwitch(trackerType)}
-      </fieldset>
+        <fieldset className='fieldset-content'>
+            <legend id='legend-title'>
+                {title}
+            </legend>
+            {renderSwitch(trackerType, data)}
+            
+        </fieldset>
     </div>
   );
 };
