@@ -80,8 +80,8 @@ const AbilityTracker = () => {
       </div>
       <div className='ability-grid'>
         {
-          abilities.map((ability) => (
-            <AbilityCard abilityName={ ability[0] } abilityUses={ ability[1] }/>
+          abilities.map((ability, i) => (
+            <AbilityCard abilityId={'ability-'+i} abilityName={ ability[0] } abilityUses={ ability[1] }/>
           ))
         }
       </div>

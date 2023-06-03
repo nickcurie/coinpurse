@@ -210,6 +210,87 @@ input.big-checkbox {
   cursor: pointer !important;
 }
 
+.outer-ring {
+  --right-start-angle: 0deg;
+  --right-end-angle: 0deg;
+  --left-start-angle: 0deg;
+  --left-end-angle: 0deg;
+  position: relative;
+  width: 100%;
+  max-width: 10rem;
+  aspect-ratio: 1 / 1;
+  background: var(--secondary-color);
+}
+
+.inner-ring {
+  position: absolute;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  clip-path: inset(0% 50% 0% 0%);
+  background-color: var(--secondary-color-500);
+  overflow: hidden;
+}
+
+.fill {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  clip-path: inset(0% 50% 0% 0%);
+  background-color: var(--accent-color);
+}
+
+.left .fill {
+  animation: left 1s linear both;
+  animation-delay: 1s;
+}
+
+@keyframes left {
+  0% {
+    transform: rotate(var(--left-start-angle));
+  }
+  100% {
+    transform: rotate(var(--left-end-angle));
+  }
+}
+
+.right {
+  transform: rotate(180deg);
+}
+
+.right .fill {
+  animation: right 1s linear both;
+}
+
+@keyframes right {
+  0% {
+    transform: rotate(var(--right-start-angle));
+  }
+  100% {
+    transform: rotate(var(--right-end-angle));
+  }
+}
+
+.circle-cover {
+  --ring-width: 85%;
+  position: absolute;
+  top: calc((100% - var(--ring-width)) / 2);
+  right: calc((100% - var(--ring-width)) / 2);
+  width: var(--ring-width);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle-cover span {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
 /* ======
   base tracker 
    ======  */
@@ -573,7 +654,6 @@ input.big-checkbox {
 .ability-card {
   width: 100%;
   display: flex;
-  flex-flow: column;
   gap: 1em;
   align-items: center;
   justify-self: center;
