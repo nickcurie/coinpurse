@@ -3,12 +3,14 @@ import AbilityCard from './AbilityCard';
 import Button from './Button';
 
 const AbilityTracker = () => {
-  //TODO: don't use checkboxes for use tracking
+  const maxUses = 15;
+  const maxNameLength = 25;
 
   // [["x", 3], ["y", 4]]
   const [abilities, setAbilities] = useState([]);
   const [abilityName, setAbilityName] = useState('');
   const [uses, setUses] = useState('');
+  const [resetSignal, setResetSignal] = useState(0);
 
   const onClickHandleAddAbility = () => {
     let res = checkInputOk(abilityName, uses)
@@ -30,14 +32,14 @@ const AbilityTracker = () => {
       };
     }
 
-    if (name.length > 25) {
+    if (name.length > maxNameLength) {
       return {
         ok: false,
         msg: "name too long"
       };
     }
 
-    if (uses > 8) {
+    if (uses > maxUses) {
       return {
         ok: false,
         msg: "too many uses"
@@ -58,15 +60,19 @@ const AbilityTracker = () => {
   }
 
   const restrictUses = (usesValue) => {
-    if (usesValue <= 8 && usesValue > 0) {
+    if (usesValue <= maxUses && usesValue > 0) {
       setUses(usesValue);
     }
   }
 
   const restrictName = (name) => {
-    if (name.length <= 25) {
+    if (name.length <= maxNameLength) {
       setAbilityName(name);
     }
+  }
+
+  const sendSignal = () => {
+    setResetSignal(resetSignal + 1);
   }
 
   return (
@@ -78,10 +84,11 @@ const AbilityTracker = () => {
           </div>
           <Button text='Submit' onClick={() => onClickHandleAddAbility()}/>
       </div>
+      <Button text='Long Rest' onClick={() => sendSignal()}/>
       <div className='ability-grid'>
         {
           abilities.map((ability, i) => (
-            <AbilityCard abilityId={'ability-'+i} abilityName={ ability[0] } abilityUses={ ability[1] }/>
+            <AbilityCard abilityId={'ability-'+i} abilityName={ ability[0] } abilityUses={ ability[1] } signal={ resetSignal }/>
           ))
         }
       </div>

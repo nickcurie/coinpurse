@@ -216,8 +216,7 @@ input.big-checkbox {
   --left-start-angle: 0deg;
   --left-end-angle: 0deg;
   position: relative;
-  width: 100%;
-  max-width: 10rem;
+  width: clamp(3rem, 100%, 8rem);
   aspect-ratio: 1 / 1;
   background: var(--secondary-color);
 }
@@ -242,8 +241,8 @@ input.big-checkbox {
 }
 
 .left .fill {
-  animation: left 1s linear both;
-  animation-delay: 1s;
+  animation: left .1s linear both;
+  animation-delay: .1s;
 }
 
 @keyframes left {
@@ -260,7 +259,7 @@ input.big-checkbox {
 }
 
 .right .fill {
-  animation: right 1s linear both;
+  animation: right .1s linear both;
 }
 
 @keyframes right {

@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Ring = ({currentUses, totalUses}) => {
+  //TODO: add animation
   return (
     <div className='outer-ring'>
       <div className='inner-ring left'>
