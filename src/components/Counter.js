@@ -29,9 +29,9 @@ const Counter = ({counterFor}) => {
   return (
     <div className='counter-and-label-grid'>
       <div className='counter-grid' id='rounded-rectangle'>
-        <button className='as-text' onClick={() => constrainNumber('sub')} id={disabledProp}><FontAwesomeIcon icon={faMinus}></FontAwesomeIcon></button>
+        <button className='as-text' onClick={() => constrainNumber('sub')} id={disabledProp}><FontAwesomeIcon icon={faMinus}/></button>
         <p>{number}</p>
-        <button className='as-text' onClick={() => constrainNumber('add')}><FontAwesomeIcon icon={faPlus}></FontAwesomeIcon></button>
+        <button className='as-text' onClick={() => constrainNumber('add')}><FontAwesomeIcon icon={faPlus}/></button>
       </div>
       <h2>{counterFor}</h2>
     </div>
