@@ -1,20 +1,20 @@
-import React from 'react'
+import React from "react";
 
-const Ring = ({currentUses, totalUses}) => {
+const Ring = ({ currentUses, totalUses }) => {
   //TODO: add animation
   return (
-    <div className='outer-ring'>
-      <div className='inner-ring left'>
-        <div className='fill'></div>
+    <div className="outer-ring">
+      <div className="inner-ring left">
+        <div className="fill"></div>
       </div>
-      <div className='inner-ring right'>
-        <div className='fill'></div>
+      <div className="inner-ring right">
+        <div className="fill"></div>
       </div>
-      <div className='circle-cover'>
-        <span>{currentUses + '/' + totalUses}</span>
+      <div className="circle-cover">
+        <span>{currentUses + "/" + totalUses}</span>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Ring
+export default Ring;

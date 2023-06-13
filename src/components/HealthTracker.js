@@ -1,34 +1,33 @@
-import React, { useEffect, useState } from 'react';
-import Button from './Button';
-import Fader from './Fader';
+import React, { useEffect, useState } from "react";
+import Button from "./Button";
+import Fader from "./Fader";
 
 //TODO: temp health
 
 const HealthTracker = () => {
-
   const [hasHealth, setHasHealth] = useState(false);
   const [maxHealth, setMaxHealth] = useState(null);
   const [currentHealth, setCurrentHealth] = useState(null);
   const [healthDelta, setHealthDelta] = useState(0);
   const [fadeProp, setFadeProp] = useState({
-    fade: 'fade-out',
+    fade: "fade-out",
   });
   const [fadeProp2, setFadeProp2] = useState({
-    fade: 'fade-out',
+    fade: "fade-out",
   });
-  const [healthStatus, setHealthStatus] = useState('healthy');
+  const [healthStatus, setHealthStatus] = useState("healthy");
 
   useEffect(() => {
     const timeout = setInterval(() => {
-      if (fadeProp.fade === 'fade-in') {
+      if (fadeProp.fade === "fade-in") {
         setFadeProp({
-          fade: 'fade-out'
-        })
+          fade: "fade-out",
+        });
       }
-      if (fadeProp2.fade === 'fade-in') {
+      if (fadeProp2.fade === "fade-in") {
         setFadeProp2({
-          fade: 'fade-out'
-        })
+          fade: "fade-out",
+        });
       }
     }, 2000);
     const timeout2 = setInterval(() => {
@@ -37,19 +36,19 @@ const HealthTracker = () => {
     return () => {
       clearInterval(timeout);
       clearInterval(timeout2);
-    }
-  }, [fadeProp, fadeProp2])
+    };
+  }, [fadeProp, fadeProp2]);
 
   useEffect(() => {
     let healthRatio = currentHealth / maxHealth;
     if (healthRatio >= 0.75) {
-      setHealthStatus('healthy');
+      setHealthStatus("healthy");
     } else if (healthRatio < 0.75 && healthRatio >= 0.25) {
-      setHealthStatus('caution');
+      setHealthStatus("caution");
     } else {
-      setHealthStatus('danger');
+      setHealthStatus("danger");
     }
-  }, [currentHealth, maxHealth])
+  }, [currentHealth, maxHealth]);
 
   const onClickSetMaxHealth = () => {
     if (!maxHealth) {
@@ -61,51 +60,74 @@ const HealthTracker = () => {
     setCurrentHealth(maxHealth);
     setHasHealth(true);
     return false;
-  }
+  };
 
   const constrainHealth = (type) => {
-    if (type === 'add') {
+    if (type === "add") {
       if (currentHealth + 1 <= maxHealth) {
         setCurrentHealth(currentHealth + 1);
-        setHealthDelta(healthDelta + 1)
-        setFadeProp({fade: 'fade-in'})
+        setHealthDelta(healthDelta + 1);
+        setFadeProp({ fade: "fade-in" });
       }
     } else {
       if (currentHealth - 1 >= 0) {
         setCurrentHealth(currentHealth - 1);
-        setHealthDelta(healthDelta - 1)
-        setFadeProp2({fade: 'fade-in'})
+        setHealthDelta(healthDelta - 1);
+        setFadeProp2({ fade: "fade-in" });
       }
     }
-  }
+  };
 
   return (
     <>
-      {
-        !hasHealth
-        ?
-          <div className='add-form'>
-            <div className='form-control'>
-              <input type='number' onBlur={(e) => setMaxHealth(e.target.value)} placeholder='Max Health'/>
-            </div>
-            <div align='center'>
-              <Button text='Submit' onClick={() => onClickSetMaxHealth()}/>
-            </div>
+      {!hasHealth ? (
+        <div className="add-form">
+          <div className="form-control">
+            <input
+              type="number"
+              onBlur={(e) => setMaxHealth(e.target.value)}
+              placeholder="Max Health"
+            />
           </div>
-        :
-        <div className='health-content'>
-          <h1 id='health'>
-            <span id={'current-health-'+healthStatus}>{currentHealth}</span> / <span className='clickable' onClick={() => setHasHealth(false)}>{maxHealth}</span>
+          <div align="center">
+            <Button text="Submit" onClick={() => onClickSetMaxHealth()} />
+          </div>
+        </div>
+      ) : (
+        <div className="health-content">
+          <h1 id="health">
+            <span id={"current-health-" + healthStatus}>{currentHealth}</span> /{" "}
+            <span className="clickable" onClick={() => setHasHealth(false)}>
+              {maxHealth}
+            </span>
           </h1>
-          <Fader text={healthDelta.toString()} textColor='red' fadeProp={fadeProp2} propId='health-change-neg'></Fader>
-          <Fader text={'+'+healthDelta} textColor='green' fadeProp={fadeProp} propId='health-change-pos'></Fader>
-          <Button text={'+'} onClick={() => constrainHealth('add')} propId='health-plus'></Button>
-          <Button text={'-'} onClick={() => constrainHealth('sub')} propId='health-minus'></Button>
+          <Fader
+            text={healthDelta.toString()}
+            textColor="red"
+            fadeProp={fadeProp2}
+            propId="health-change-neg"
+          ></Fader>
+          <Fader
+            text={"+" + healthDelta}
+            textColor="green"
+            fadeProp={fadeProp}
+            propId="health-change-pos"
+          ></Fader>
+          <Button
+            text={"+"}
+            onClick={() => constrainHealth("add")}
+            propId="health-plus"
+          ></Button>
+          <Button
+            text={"-"}
+            onClick={() => constrainHealth("sub")}
+            propId="health-minus"
+          ></Button>
           {/* <Button text={'Change Max HP'} onClick={() => setHasHealth(false)} propId={'change-max-health'}></Button> */}
         </div>
-      }
+      )}
     </>
-  )
-}
+  );
+};
 
-export default HealthTracker
+export default HealthTracker;
