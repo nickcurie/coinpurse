@@ -4,12 +4,16 @@ import Fader from "./Fader";
 
 //TODO: temp health
 
-const HealthTracker = ({ loadCurrentHealth, loadMaxHealth }) => {
-
+const HealthTracker = ({
+  loadCurrentHealth,
+  loadMaxHealth,
+  updateConfig,
+  num,
+}) => {
   const colors = {
-    healthy: { color: 'green' },
-    caution: { color: 'orange' },
-    danger: { color: 'red' }
+    healthy: { color: "green" },
+    caution: { color: "orange" },
+    danger: { color: "red" },
   };
 
   const [hasHealth, setHasHealth] = useState(loadMaxHealth ? true : null); // There might be a cleaner way for this
@@ -47,6 +51,21 @@ const HealthTracker = ({ loadCurrentHealth, loadMaxHealth }) => {
   }, [fadeProp, fadeProp2]);
 
   useEffect(() => {
+    if (currentHealth === undefined || maxHealth === undefined) {
+      return;
+    }
+    console.log(currentHealth);
+    updateConfig(
+      {
+        maxHealth: maxHealth,
+        currentHealth: currentHealth,
+      },
+      "health",
+      num
+    );
+  }, [currentHealth, maxHealth]);
+
+  useEffect(() => {
     let healthRatio = currentHealth / maxHealth;
     if (healthRatio >= 0.75) {
       setHealthStatus(colors.healthy);
@@ -72,13 +91,17 @@ const HealthTracker = ({ loadCurrentHealth, loadMaxHealth }) => {
   const constrainHealth = (type) => {
     if (type === "add") {
       if (currentHealth + 1 <= maxHealth) {
-        setCurrentHealth(currentHealth + 1);
+        setCurrentHealth((health) => {
+          return health + 1;
+        });
         setHealthDelta(healthDelta + 1);
         setFadeProp({ fade: "fade-in" });
       }
     } else {
       if (currentHealth - 1 >= 0) {
-        setCurrentHealth(currentHealth - 1);
+        setCurrentHealth((health) => {
+          return health - 1;
+        });
         setHealthDelta(healthDelta - 1);
         setFadeProp2({ fade: "fade-in" });
       }
@@ -101,10 +124,17 @@ const HealthTracker = ({ loadCurrentHealth, loadMaxHealth }) => {
           </div>
         </div>
       ) : (
-        <div className='health-content'>
-          <h1 id='health'>
-            <span id='current-health' style={healthStatus}>{currentHealth}</span> /{" "}
-            <span id='max-health' className='clickable' onClick={() => setHasHealth(false)}>
+        <div className="health-content">
+          <h1 id="health">
+            <span id="current-health" style={healthStatus}>
+              {currentHealth}
+            </span>{" "}
+            /{" "}
+            <span
+              id="max-health"
+              className="clickable"
+              onClick={() => setHasHealth(false)}
+            >
               {maxHealth}
             </span>
           </h1>
