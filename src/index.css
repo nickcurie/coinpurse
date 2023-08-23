@@ -310,6 +310,7 @@ input.big-checkbox {
   grid-template-columns: repeat(auto-fit, minmax(580px, 1fr));
   gap: 30px 60px;
   align-items: center;
+  margin-bottom: 60px;
 }
 
 .add-tracker {
@@ -353,8 +354,8 @@ input.big-checkbox {
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 2rem 10px 10px;
-  background-color: var(--secondary-color-700);
-  border: 2px solid var(--secondary-color-900);
+  background-color: var(--secondary-color);
+  border: 2px solid var(--secondary-color-700);
   border-radius: 5px;
 }
 
@@ -367,6 +368,39 @@ input.big-checkbox {
 .add-tracker-button-container > * {
   flex-grow: 1;
   flex-basis: 30%;
+}
+
+.config-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2rem;
+  background-color: var(--secondary-color);
+  border: 2px solid var(--secondary-color-700);
+  border-radius: 5px;
+}
+
+.config-container {
+  display: grid;
+  gap: 2rem;
+}
+
+#config-input {
+  width: 600px;
+  aspect-ratio: 2 / 1;
+}
+
+.config-options {
+  display: flex;
+  justify-content: space-around;
+}
+
+.open-config {
+  width: 100%;
+  display: inline-flex;
+  justify-content: right;
+  padding-inline: 30px;
 }
 
 /* ======
